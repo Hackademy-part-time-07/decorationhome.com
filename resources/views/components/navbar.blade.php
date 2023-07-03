@@ -32,5 +32,22 @@
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
       </div>
+      <ul class="navbar-nav ms-2">
+        @guest
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('login') }}">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('register') }}">Register</a>
+            </li>
+        @else
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="font-size: 1rem; margin-bottom: -10px;">Logout</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </li>
+        @endguest
+    </ul>
     </div>
   </nav>
