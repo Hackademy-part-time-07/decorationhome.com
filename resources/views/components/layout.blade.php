@@ -1,6 +1,6 @@
 
 <head>
-    <title>{{$title ?? 'decorationhome.com'}}</title>
+    <title>{{$title ?? 'homedecoration.com'}}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
