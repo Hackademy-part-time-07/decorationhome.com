@@ -1,2 +1,2 @@
-# decorationhome.com
+# homedecoration.com
 Web design with Laravel PHP
