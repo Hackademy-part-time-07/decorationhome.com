@@ -14,6 +14,10 @@
             <label for="price" class="form-label">precio:</label>
             <input wire:model="price" type="number" class="form-control @error('price') is-invalid @enderror">
         </div>
+        <div class="Esto se eleminina ">
+
+        
+        </div>
         <div class="mb-3">
             <label for="body" class="form-label">Descripción:</label>
             <textarea wire:model="body" cols="30" rows="15" class="form-control @error('body') is-invalid @enderror"></textarea>
