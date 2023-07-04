@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AdController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +17,10 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/ads/create',[AdController::class,'create'])->name('ads.create');
+
 Auth::routes();
+
 
 
 
