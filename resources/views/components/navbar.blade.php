@@ -9,15 +9,15 @@
     </button>
 
     <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
-      <ul class="navbar-nav">
+      <ul class="navbar-item" style="list-style-type: none; display:flex; justify-content: space-around;">
         <li class="nav-item">
           <a class="nav-link" href="/">Inicio</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" style="margin-left: 10px;">
           <a class="nav-link" href="{{ route('ads') }}">Anuncios</a>
         </li>
       </ul>
-
+@auth
       <ul class="navbar-item">
         <li class="nav-item dropdown" style="list-style-type: none;">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 1.35rem; margin-bottom: -10px; text-decoration: none;">
@@ -28,6 +28,7 @@
           </ul>
         </li>
       </ul>
+      @endauth
 
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
