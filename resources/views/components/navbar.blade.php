@@ -13,10 +13,7 @@
         <li class="nav-item">
           <a class="nav-link" href="/">Inicio</a>
         </li>
-        <li class="nav-item" style="margin-left: 10px;">
-          <a class="nav-link" href="{{ route('ads') }}">Anuncios</a>
-        </li>
-      </ul>
+        
 @auth
       <ul class="navbar-item">
         <li class="nav-item dropdown" style="list-style-type: none;">

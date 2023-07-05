@@ -3,16 +3,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdController;
 use App\Http\Livewire\CreateAd;
 use App\Http\Controllers\HomeController;
+use App\Models\Ad;
 
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', function () {
+    $ads = Ad::all(); // Obtener todos los anuncios
+    return view('ads', compact('ads')); // Pasar la variable $ads a la vista
+});
 
-Route::get('/ad', [AdController::class, 'showAds'])->name('ads');
 Route::get('/ad/create', [AdController::class, 'create'])->name('create');
 Route::post('/ad', [AdController::class, 'store'])->name('ad.store');
-
-//Route::post('/ad/ads', [AdController::class, 'store'])->name('ads.store');
-
-Auth::routes(    
-);
-
+Route::post('/ad/ads', [AdController::class, 'store'])->name('ads.store');
+Route::get('/ad', [AdController::class, 'showAds'])->name('ads');

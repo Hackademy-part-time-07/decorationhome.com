@@ -24,17 +24,17 @@ class AdController extends Controller
             'category_id' => 'required|exists:categories,id',
         ]);
 
-        $user = Auth::user(); // Obtener el usuario actualmente autenticado
-        $adData['user_id'] = $user->id; // Asignar el ID del usuario al campo user_id del anuncio
+        $user = Auth::user();
+        $adData['user_id'] = $user->id;
 
         Ad::create($adData);
 
-        return redirect()->route('home')->with('success', 'El anuncio ha sido guardado exitosamente.');
+        return redirect()->route('ads')->with('success', 'El anuncio ha sido guardado exitosamente.');
     }
 
     public function showAds()
     {
         $ads = Ad::all();
-        return view('ad.ads', compact('ads'));
+        return view('ads', ['ads' => $ads]);
     }
 }

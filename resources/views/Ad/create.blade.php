@@ -1,5 +1,5 @@
 <x-layout>
-    <x-slot name='title'>decorationhome - Vendo algo interesante</x-slot>
+    <x-slot name='title'>homedecoration - Vendo algo interesante</x-slot>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">

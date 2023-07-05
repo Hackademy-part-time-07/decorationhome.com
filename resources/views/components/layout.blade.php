@@ -13,10 +13,5 @@
   {{$slot}}
   <x-footer />
 
-  <script>
-    // Cerrar el menú al hacer clic en un enlace dentro del menú
-    $('.navbar-nav>li>a').on('click', function(){
-      $('.navbar-collapse').collapse('hide');
-    });
-  </script>
+  
 </body>
