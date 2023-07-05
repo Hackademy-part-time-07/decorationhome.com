@@ -1,26 +1,20 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdController;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+use App\Http\Livewire\CreateAd;
+use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/ads/create',[AdController::class,'create'])->name('ads.create');
+
+Route::get('/ad/create', [AdController::class, 'create'])->name('create');
+Route::post('/ad', [AdController::class, 'store'])->name('ad.store');
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::post('/ad/ads', [AdController::class, 'store'])->name('ads.store');
+Route::get('/ad', [AdController::class, 'showAds'])->name('ads');
 
 Auth::routes();
-
-
-
 
