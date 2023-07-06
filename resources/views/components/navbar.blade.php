@@ -13,8 +13,12 @@
         <li class="nav-item">
           <a class="nav-link" href="/">Inicio</a>
         </li>
-        
-@auth
+        <li class="nav-item" style="margin-left: 10px;">
+          <a class="nav-link" href="{{ route('ads') }}">Anuncios</a>
+        </li>
+      </ul>
+
+      @auth
       <ul class="navbar-item">
         <li class="nav-item dropdown" style="list-style-type: none;">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 1.35rem; margin-bottom: -10px; text-decoration: none;">
@@ -32,8 +36,21 @@
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
 
-
-
+      <ul class="navbar-item">
+        <li class="nav-item dropdown" style="list-style-type: none;">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 1.35rem; margin-bottom: -10px; text-decoration: none;">
+            Categorías
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'coches']) }}">coches</a></li>
+            <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'motos']) }}">Motos</a></li>
+            <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'hogar']) }}">Hogar</a></li>
+            <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'electronica']) }}">Electrónica</a></li>
+            <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'moviles']) }}">Móviles</a></li>
+            <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'ordenadores']) }}">Ordenadores</a></li>
+             </ul>
+        </li>
+      </ul>
 
       <ul class="navbar-item">
         <li class="nav-item dropdown" style="list-style-type: none;">
@@ -43,20 +60,17 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             @guest
             <li>
-              <a class="dropdown-item" href="{{ route('login') }}">Entrar
-              </a>
+              <a class="dropdown-item" href="{{ route('login') }}">Entrar</a>
             </li>
             <li>
-              <a class="dropdown-item" href="{{ route('register') }}">Registro
-              </a>
+              <a class="dropdown-item" href="{{ route('register') }}">Registro</a>
             </li>
             @endguest
             <li>
               <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="font-size: 1rem; margin-bottom: -10px;">Logout</a>
-          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            @csrf
-          </form>
-              </a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+              </form>
             </li>
           </ul>
         </li>

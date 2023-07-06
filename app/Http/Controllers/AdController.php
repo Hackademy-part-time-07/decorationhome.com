@@ -28,7 +28,6 @@ class AdController extends Controller
         $adData['user_id'] = $user->id;
 
         Ad::create($adData);
-
         return redirect()->route('ads')->with('success', 'El anuncio ha sido guardado exitosamente.');
     }
 
@@ -37,4 +36,16 @@ class AdController extends Controller
         $ads = Ad::all();
         return view('ads', ['ads' => $ads]);
     }
+
+    public function showAdsByCategory($category)
+{
+    // Obtén el ID de la categoría en función del nombre
+    $categoryId = Category::where('name', $category)->value('id');
+
+    // Obtén los anuncios de la categoría
+    $ads = Ad::where('category_id', $categoryId)->get();
+
+    return view('ads', ['ads' => $ads]);
+}
+
 }
