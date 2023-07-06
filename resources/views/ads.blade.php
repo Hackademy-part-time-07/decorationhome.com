@@ -8,7 +8,7 @@
 @endif
 
 @if(request()->is('ads'))
-    <h1>{{ $categoryName ?? 'Anuncios:' }}</h1>
+    <h1>{{ $categoryName ?? 'Todos los anuncios:' }}</h1>
 @endif
 
     <h1>{{ $categoryName }}</h1>
