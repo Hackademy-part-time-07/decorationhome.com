@@ -33,7 +33,11 @@
         </div>
     </div>
 
+    @if (request()->is('/')) <!-- Verificar si la ruta actual es "/" -->
+    <!-- No mostrar el paginador -->
+@else
     <div class="d-flex justify-content-center">
         {{ $ads->links('pagination::bootstrap-4') }}
     </div>
+@endif
 </x-layout>

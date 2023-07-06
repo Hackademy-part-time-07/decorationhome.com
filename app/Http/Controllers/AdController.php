@@ -49,38 +49,33 @@ public function show($id)
     return view('ad.show', compact('ad'));
 }
 
-
-
-
-
-
 public function showAds()
 {
-    $ads = Ad::latest()->paginate(6);
+    if (request()->is('/')) {
+        $slicedAds = Ad::latest()->take(6)->get();
+        $ads = collect([]); // Crear una colección vacía para el paginador
+    } else {
+        $ads = Ad::latest()->paginate(6);
+        $slicedAds = $ads->take(6);
+    }
 
-    $categoryName = null;
-    $showCategories = true; // Variable para controlar la visualización de "Todas las Categorías"
+    $categoryName = null; // Establecer el valor predeterminado para evitar el error
+    $welcomeMessage = '¡Bienvenido/a! Estas son las últimas publicaciones'; // Mensaje de bienvenida
 
-    return view('ads', compact('categoryName', 'ads', 'showCategories'));
+    return view('ads', compact('slicedAds', 'categoryName', 'welcomeMessage'))->with('ads', $ads);
 }
-
 
 public function showAdsByCategory($category)
 {
-    // Obtén los anuncios de la categoría con paginación
     $ads = Ad::whereHas('category', function ($query) use ($category) {
         $query->where('name', $category);
     })->paginate(6);
 
-    // Obtén el nombre de la categoría
+    $slicedAds = $ads->take(6);
+
     $categoryName = Category::where('name', $category)->value('name');
 
-    // Pasar los datos a la vista
-    return view('ads', [
-        'categoryName' => $categoryName,
-        'ads' => $ads,
-        'pageTitle' => $categoryName, // Establecer el valor del título de la página
-    ]);
+    return view('ads', compact('slicedAds', 'categoryName'))->with('ads', $ads);
 }
 
 }
