@@ -1,5 +1,5 @@
 <x-layout>
-    <x-slot name='title'>homedecoration - Vendo algo interesante</x-slot>
+    <x-slot name="title">homedecoration - Vendo algo interesante</x-slot>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -7,7 +7,7 @@
                     <div class="card-header">
                         Nuevo Anuncio
                     </div>
-                    <form action="{{ route('ad.store') }}" method="POST">
+                    <form action="{{ route('ad.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="title">Título:</label>
@@ -29,6 +29,10 @@
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="image">Imagen:</label>
+                            <input type="file" name="image" id="image" class="form-control-file">
                         </div>
                         <button type="submit" class="btn btn-primary">Guardar</button>
                     </form>

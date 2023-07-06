@@ -18,23 +18,7 @@
         </li>
       </ul>
 
-      @auth
-      <ul class="navbar-item">
-        <li class="nav-item dropdown" style="list-style-type: none;">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 1.35rem; margin-bottom: -10px; text-decoration: none;">
-            Colaborador
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="{{ route('create') }}">Create Article</a></li>
-          </ul>
-        </li>
-      </ul>
-      @endauth
 
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
 
       <ul class="navbar-item">
         <li class="nav-item dropdown" style="list-style-type: none;">
@@ -52,6 +36,32 @@
         </li>
       </ul>
 
+
+      
+
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+
+
+      @auth
+      <ul class="navbar-item">
+        <li class="nav-item dropdown" style="list-style-type: none;">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 1.35rem; margin-bottom: -10px; text-decoration: none;">
+            Colaborador
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{{ route('create') }}">Create Article</a></li>
+          </ul>
+        </li>
+      </ul>
+      @endauth
+
+
+
+
+      
       <ul class="navbar-item">
         <li class="nav-item dropdown" style="list-style-type: none;">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 1.35rem; margin-bottom: -10px; text-decoration: none;">

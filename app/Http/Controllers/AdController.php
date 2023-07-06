@@ -22,20 +22,30 @@ class AdController extends Controller
         'body' => 'required',
         'price' => 'required|numeric',
         'category_id' => 'required|exists:categories,id',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validación para la imagen
     ]);
 
     $user = Auth::user();
     $adData['user_id'] = $user->id;
 
+    // Procesar la imagen si se ha subido
+    if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $imageName = time() . '.' . $image->getClientOriginalExtension();
+        $image->storeAs('public/images', $imageName);
+        $adData['image'] = $imageName; // Guardar el nombre de archivo en la columna 'image'
+    }
+
     Ad::create($adData);
-    
+
     $categoryName = null; // Establecer el valor predeterminado para evitar el error
-    
+
     return redirect()->route('ads')->with([
         'success' => 'El anuncio ha sido guardado exitosamente.',
         'categoryName' => $categoryName
     ]);
 }
+
 
 
 public function show($id)
