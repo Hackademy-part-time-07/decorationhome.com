@@ -5,7 +5,17 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <img src="{{ $ad->image ? asset('storage/images/' . $ad->image) : asset('images/placeholder-image.jpg') }}" class="card-img-top" alt="Imagen del anuncio">
+
+
+                    @if ($ad->image)
+                    <img src="{{ asset('storage/images/' . $ad->image) }}" class="card-img-top" alt="Anuncio" height="600px" width="100%">
+                @else
+                    <img src="{{ asset('images/birras.jpeg') }}
+                    " class="card-img-top" alt="Imagen de relleno">
+                @endif
+
+
+
                     <div class="card-body">
                         <h5 class="card-title">{{ $ad->title }}</h5>
                         <p class="card-text">{{ $ad->body }}</p>
