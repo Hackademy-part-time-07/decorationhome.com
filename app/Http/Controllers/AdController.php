@@ -65,8 +65,8 @@ public function showAds()
         $slicedAds = Ad::latest()->take(6)->get();
         $ads = collect([]); // Crear una colección vacía para el paginador
     } else {
-        $ads = Ad::latest()->paginate(6);
-        $slicedAds = $ads->take(6);
+        $ads = Ad::latest()->paginate(10);
+        $slicedAds = $ads->take(10);
     }
 
     $categoryName = null; // Establecer el valor predeterminado para evitar el error
