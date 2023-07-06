@@ -22,6 +22,8 @@
                                     <p class="card-text">Categoría: <a href="{{ route('ads.category', ['category' => $ad->category->name]) }}">{{ optional($ad->category)->name }}</a></p>
                                     <p class="card-text">Fecha de creación: {{ $ad->created_at }}</p>
                                     <p class="card-text">Usuario: {{ optional($ad->user)->name }}</p>
+                                    <a href="{{ route('ad.show', ['id' => $ad->id]) }}">Ver detalles</a>
+                                
                                 </div>
                             @endforeach
                         </div>
@@ -29,5 +31,9 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="d-flex justify-content-center">
+        {{ $ads->links('pagination::bootstrap-4') }}
     </div>
 </x-layout>

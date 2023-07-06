@@ -37,9 +37,27 @@ class AdController extends Controller
     ]);
 }
 
+
+public function show($id)
+{
+    $ad = Ad::find($id);
+
+    if (!$ad) {
+        abort(404);
+    }
+
+    return view('ad.show', compact('ad'));
+}
+
+
+
+
+
+
 public function showAds()
 {
-    $ads = Ad::all();
+    $ads = Ad::latest()->paginate(6);
+
     $categoryName = null;
     $showCategories = true; // Variable para controlar la visualización de "Todas las Categorías"
 
@@ -47,12 +65,12 @@ public function showAds()
 }
 
 
-    public function showAdsByCategory($category)
+public function showAdsByCategory($category)
 {
-    // Obtén los anuncios de la categoría
+    // Obtén los anuncios de la categoría con paginación
     $ads = Ad::whereHas('category', function ($query) use ($category) {
         $query->where('name', $category);
-    })->get();
+    })->paginate(6);
 
     // Obtén el nombre de la categoría
     $categoryName = Category::where('name', $category)->value('name');
@@ -64,8 +82,5 @@ public function showAds()
         'pageTitle' => $categoryName, // Establecer el valor del título de la página
     ]);
 }
-
-
-
 
 }
