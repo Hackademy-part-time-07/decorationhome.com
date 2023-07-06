@@ -9,7 +9,7 @@ use App\Models\Category;
 Route::get('/', function () {
     $ads = Ad::latest()->paginate(6); // Obtener los últimos anuncios creados con paginación
     $categoryName = null; // Establecer el valor predeterminado para evitar el error
-    $welcomeMessage = '¡Bienvenido/a! Estas son las últimas publicaciones de nuestro vendedores.'; // Mensaje de bienvenida
+    $welcomeMessage = '¡Bienvenido/a! Estas son las últimas publicaciones de nuestro vendedores'; // Mensaje de bienvenida
     return view('ads', compact('ads', 'categoryName', 'welcomeMessage')); // Pasar las variables a la vista
 });
 //home

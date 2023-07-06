@@ -3,8 +3,16 @@
         {{ $categoryName ?? 'Lista de Anuncios' }}
     </x-slot>
     <div class="container">
-        <h1>{{ $welcomeMessage ?? '' }}</h1>
-        <h1>{{ $categoryName ?? 'Anuncios:' }}</h1>
+        @if(request()->is('/'))
+    <h1>{{ $welcomeMessage ?? '' }}</h1>
+@endif
+
+@if(request()->is('ads'))
+    <h1>{{ $categoryName ?? 'Anuncios:' }}</h1>
+@endif
+
+    <h1>{{ $categoryName }}</h1>
+
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
