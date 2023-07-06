@@ -17,8 +17,8 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     @if($ads->isEmpty())
-                        <p>No hay ningún anuncio en la categoría seleccionada.</p>
-                        <p><a href="/">Volver al inicio</a></p>
+                    <p>No hay nada en está categoría puedes <a href="{{ route('create') }}">publicar</a> algo</p>
+                        <p>o Volver al <a href="/">inicio</a> y comprar alguno de nuestro muchos productos de otras categorias</p>
                     @else
                         <div class="card-columns">
                             @foreach($ads as $ad)
