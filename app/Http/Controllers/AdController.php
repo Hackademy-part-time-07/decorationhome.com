@@ -16,36 +16,56 @@ class AdController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $adData = $request->validate([
-            'title' => 'required',
-            'body' => 'required',
-            'price' => 'required|numeric',
-            'category_id' => 'required|exists:categories,id',
-        ]);
+{
+    $adData = $request->validate([
+        'title' => 'required',
+        'body' => 'required',
+        'price' => 'required|numeric',
+        'category_id' => 'required|exists:categories,id',
+    ]);
 
-        $user = Auth::user();
-        $adData['user_id'] = $user->id;
+    $user = Auth::user();
+    $adData['user_id'] = $user->id;
 
-        Ad::create($adData);
-        return redirect()->route('ads')->with('success', 'El anuncio ha sido guardado exitosamente.');
-    }
+    Ad::create($adData);
+    
+    $categoryName = null; // Establecer el valor predeterminado para evitar el error
+    
+    return redirect()->route('ads')->with([
+        'success' => 'El anuncio ha sido guardado exitosamente.',
+        'categoryName' => $categoryName
+    ]);
+}
 
-    public function showAds()
-    {
-        $ads = Ad::all();
-        return view('ads', ['ads' => $ads]);
-    }
+public function showAds()
+{
+    $ads = Ad::all();
+    $categoryName = null;
+    $showCategories = true; // Variable para controlar la visualización de "Todas las Categorías"
+
+    return view('ads', compact('categoryName', 'ads', 'showCategories'));
+}
+
 
     public function showAdsByCategory($category)
 {
-    // Obtén el ID de la categoría en función del nombre
-    $categoryId = Category::where('name', $category)->value('id');
-
     // Obtén los anuncios de la categoría
-    $ads = Ad::where('category_id', $categoryId)->get();
+    $ads = Ad::whereHas('category', function ($query) use ($category) {
+        $query->where('name', $category);
+    })->get();
 
-    return view('ads', ['ads' => $ads]);
+    // Obtén el nombre de la categoría
+    $categoryName = Category::where('name', $category)->value('name');
+
+    // Pasar los datos a la vista
+    return view('ads', [
+        'categoryName' => $categoryName,
+        'ads' => $ads,
+        'pageTitle' => $categoryName, // Establecer el valor del título de la página
+    ]);
 }
+
+
+
 
 }
