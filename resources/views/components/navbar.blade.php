@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg" style="padding-left: 10px; padding-right: 15px;">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/" style="margin-top: -40px;">
+    <a class="navbar-brand" href="/">
       <img src="{{ asset('images/HOMEDECORATION.COM.png') }}" alt="Logo" width="250px" height="250px">
     </a>
 
@@ -11,7 +11,7 @@
     <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
       <ul class="navbar-item" style="list-style-type: none; display:flex; justify-content: space-around;">
         <li class="nav-item">
-          <a class="nav-link" href="/">Inicio</a>
+          <a class="nav-link" style="margin-right:100px;" href="/">Inicio</a>
         </li>
         <li class="nav-item" style="margin-left: 10px;">
           <a class="nav-link" href="{{ route('ads') }}">Anuncios</a>
@@ -26,7 +26,7 @@
             Categorías
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'coches']) }}">coches</a></li>
+            <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'coches']) }}">Coches</a></li>
             <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'motos']) }}">Motos</a></li>
             <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'hogar']) }}">Hogar</a></li>
             <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'electronica']) }}">Electrónica</a></li>
@@ -39,9 +39,9 @@
 
       
 
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+      <form class=" d-flex" role="search">
+        <input class="search form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="search btn btn-outline-success" type="submit">Search</button>
       </form>
 
 

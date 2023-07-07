@@ -1,0 +1,69 @@
+.card-columns {
+    column-count: 2;
+    column-gap: 30px; /* Espacio entre las columnas de las tarjetas */
+}
+
+
+
+.card {
+    background-color: antiquewhite;
+    margin-bottom: 30px;
+    margin-right: 15px; /* Espaciado entre las tarjetas */
+    display: flex; /* Muestra las tarjetas como flexbox */
+    flex-direction: column; /* Coloca el contenido en una columna */
+    height: 700px; /* Establece una altura del 100% para todas las tarjetas */
+    break-inside: avoid; /* Evita que las tarjetas se corten entre columnas */
+}
+
+
+.card img {
+    flex: 1; /* Ocupa todo el espacio disponible dentro de la tarjeta */
+    object-fit: cover; /* Ajusta el tamaño de la imagen */
+    width: 100%;
+}
+
+.card-body {
+    flex: 1; /* Ocupa todo el espacio disponible dentro de la tarjeta */
+    padding: 10px; /* Ajusta el espaciado interno */
+    display: flex; /* Muestra el contenido como flexbox */
+    flex-direction: column; /* Coloca el contenido en una columna */
+    overflow-y: auto; /* Agrega una barra de desplazamiento vertical si el contenido excede el espacio disponible */
+    justify-content: space-between; /* Distribuye el contenido verticalmente */
+}
+
+.card-body h5 {
+    margin-top: 0; /* Elimina el margen superior de la fila anterior (título) */
+}
+
+.card-body .card-text {
+    margin-top: 10px; /* Espacio superior entre las filas (párrafos) */
+}
+
+.card-body .btn {
+    margin-top: auto; /* Coloca el botón en la parte inferior de la tarjeta */
+}
+
+/* Clearfix para que las columnas comiencen al mismo nivel */
+.card-columns::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+@media (max-width: 991px) {
+    .card-columns {
+        column-count: unset; /* Elimina la configuración de columnas */
+        display: flex;
+        justify-content: center; /* Centra las tarjetas horizontalmente */
+        flex-wrap: wrap; /* Envuelve las tarjetas en múltiples filas */
+    }
+  
+    .card {
+        margin-top: 20px;
+        flex-basis: 80%; /* Ancho completo para cada tarjeta */
+    }
+}
+
+    
+  

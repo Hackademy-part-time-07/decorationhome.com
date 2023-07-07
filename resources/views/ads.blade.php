@@ -8,10 +8,11 @@
         @endif
 
         @if(request()->is('ads'))
-            <h1>{{ $categoryName ?? 'Todos los anuncios:' }}</h1>
+            <h1 style="margin-top:20px; ">{{ $categoryName ?? 'Todos los anuncios:' }}</h1>
         @endif
 
-        <h1>{{ $categoryName }}</h1>
+        <h1>{{ ucfirst($categoryName) }}</h1>
+
 
         <div class="container">
             <div class="row justify-content-center">
@@ -24,18 +25,18 @@
                             @foreach($ads as $ad)
                                 <div class="card">
                                     @if ($ad->image)
-                                        <img src="{{ asset('storage/images/' . $ad->image) }}" class="card-img-top" alt="Anuncio" height="600px" width="100%">
+                                        <img src="{{ asset('storage/images/' . $ad->image) }}" class="card-img-top" alt="Anuncio" height="300px" width="100%">
                                     @else
                                         <img src="{{ asset('images/birras.jpeg') }}" class="card-img-top" alt="Imagen de relleno">
                                     @endif
                                     <div class="card-body">
                                         <h5 class="card-title">{{ $ad->title }}</h5>
-                                        <p class="card-text">{{ $ad->body }}</p>
+                                        <div class="card-text scrollable">{{ $ad->body }}</div>
                                         <p class="card-text">Precio: ${{ $ad->price }}</p>
                                         <p class="card-text">Categoría: <a href="{{ route('ads.category', ['category' => $ad->category->name]) }}">{{ optional($ad->category)->name }}</a></p>
                                         <p class="card-text">Fecha de creación: {{ $ad->created_at }}</p>
                                         <p class="card-text">Usuario: {{ optional($ad->user)->name }}</p>
-                                        <a href="{{ route('ad.show', ['id' => $ad->id]) }}" class="btn btn-primary">Ver detalles</a>
+                                        <a href="{{ route('ad.show', ['id' => $ad->id]) }}" class="btn">Ver detalles</a>
                                     </div>
                                 </div>
                             @endforeach
