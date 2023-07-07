@@ -1,0 +1,46 @@
+h1 {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 3rem;
+  padding-left: 60px;
+  padding-right: 10px;
+  margin-bottom: 30px;
+  color: antiquewhite;
+  -webkit-text-stroke: 2px rgb(172, 98, 8); /* Ancho y color del contorno */
+  text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.8); /* Sombreado para efecto de profundidad */
+}
+
+.btn{
+  background-color: rgb(172, 98, 8);
+  color: black;
+}
+
+
+:root{
+  --principal:rgb(152, 219, 152);
+  --secundario:rgb(195, 240, 140);
+}
+*{
+  padding: 0;
+  margin: 0;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+   box-sizing: border-box;
+}
+ul,ol{
+  list-style: none;
+}
+.btn{
+  width: 10vw;
+  background-color:var(--principal);
+  text-align: center;
+  padding: 10px;
+  border-radius:6%;
+  transition: 0.5s all ease-out;
+  color: white;
+  height: auto;
+}
+a{
+  text-decoration: none;
+}

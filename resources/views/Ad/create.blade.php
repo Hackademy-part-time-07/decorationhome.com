@@ -3,9 +3,9 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
+                <div class="card1" style="background-color: antiquewhite; padding: 15px; margin-bottom: 20px;">
                     <div class="card-header">
-                        Nuevo Anuncio
+                       <b> <h2>Nuevo Anuncio</h2> </b>
                     </div>
                     <form action="{{ route('ad.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
@@ -30,11 +30,11 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="margin-top: 10px;">
                             <label for="image">Imagen:</label>
                             <input type="file" name="image" id="image" class="form-control-file">
                         </div>
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Guardar</button>
                     </form>
                 </div>
             </div>

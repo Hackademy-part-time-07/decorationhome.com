@@ -4,13 +4,13 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
+                <div class="card1" style="background-color:antiquewhite; margin-bottom: 20px;">
 
 
                     @if ($ad->image)
                     <img src="{{ asset('storage/images/' . $ad->image) }}" class="card-img-top" alt="Anuncio" height="600px" width="100%">
                 @else
-                    <img src="{{ asset('images/birras.jpeg') }}
+                    <img src="{{ asset('images/iphonese.jpg') }}
                     " class="card-img-top" alt="Imagen de relleno">
                 @endif
 
