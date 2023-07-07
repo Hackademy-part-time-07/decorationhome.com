@@ -5,7 +5,9 @@
         Register
     </x-slot>
 
-    <h2>Register</h2>
+    <h1>Register</h1>
+
+    <div class="navbar">
 
     <form method="POST" action="{{ route('register') }}">
         @csrf
@@ -34,4 +36,6 @@
             <button type="submit">Register</button>
         </div>
     </form>
+
+</div>
 </x-layout>

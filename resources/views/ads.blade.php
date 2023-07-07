@@ -27,7 +27,7 @@
                                     @if ($ad->image)
                                         <img src="{{ asset('storage/images/' . $ad->image) }}" class="card-img-top" alt="Anuncio" height="300px" width="100%">
                                     @else
-                                        <img src="{{ asset('images/birras.jpeg') }}" class="card-img-top" alt="Imagen de relleno">
+                                        <img src="{{ asset('images/iphonese.jpg') }}" class="card-img-top" alt="Imagen de relleno">
                                     @endif
                                     <div class="card-body">
                                         <h5 class="card-title">{{ $ad->title }}</h5>

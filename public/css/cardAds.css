@@ -1,6 +1,7 @@
 .card-columns {
     column-count: 2;
-    column-gap: 30px; /* Espacio entre las columnas de las tarjetas */
+    /* Espacio entre las columnas de las tarjetas */
+
 }
 
 
@@ -12,6 +13,7 @@
     display: flex; /* Muestra las tarjetas como flexbox */
     flex-direction: column; /* Coloca el contenido en una columna */
     height: 700px; /* Establece una altura del 100% para todas las tarjetas */
+    width: 400px;
     break-inside: avoid; /* Evita que las tarjetas se corten entre columnas */
 }
 

@@ -5,8 +5,8 @@
         Login
     </x-slot>
 
-    <h2>Login</h2>
-
+    <h1>Login</h1>
+    <div  class="navbar">
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
@@ -20,11 +20,6 @@
             <input type="password" name="password" id="password" required>
         </div>
 
-        @if (Route::has('password.request'))
-                                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                                            {{ __('Forgot Your Password?') }}
-                                        </a>
-                                    @endif
 
         <div>
             <input type="checkbox" name="remember" id="remember">
@@ -35,4 +30,5 @@
             <button type="submit">Login</button>
         </div>
     </form>
+</div>
 </x-layout>

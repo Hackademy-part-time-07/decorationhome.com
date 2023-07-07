@@ -4,7 +4,9 @@ h1 {
   margin-bottom: 30px;
   margin-top: 10px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 5rem;
+  font-size: 3rem;
+  padding-left: 10px;
+  padding-right: 10px;
   color: antiquewhite;
   -webkit-text-stroke: 2px rgb(172, 98, 8); /* Ancho y color del contorno */
   text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.8); /* Sombreado para efecto de profundidad */

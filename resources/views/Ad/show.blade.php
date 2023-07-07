@@ -10,7 +10,7 @@
                     @if ($ad->image)
                     <img src="{{ asset('storage/images/' . $ad->image) }}" class="card-img-top" alt="Anuncio" height="600px" width="100%">
                 @else
-                    <img src="{{ asset('images/birras.jpeg') }}
+                    <img src="{{ asset('images/iphonese.jpg') }}
                     " class="card-img-top" alt="Imagen de relleno">
                 @endif
 

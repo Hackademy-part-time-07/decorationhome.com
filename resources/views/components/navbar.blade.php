@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg" style="padding-left: 10px; padding-right: 15px;">
+<nav class="navbar navbar-expand-lg" style="padding-left: 15px; padding-right: 15px;">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
-      <img src="{{ asset('images/HOMEDECORATION.COM.png') }}" alt="Logo" width="250px" height="250px">
+      <img src="{{ asset('images/HOMEDECORATION.COM.png') }}" alt="Logo" width="250px" height="220px">
     </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,39 +11,33 @@
     <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
       <ul class="navbar-item" style="list-style-type: none; display:flex; justify-content: space-around;">
         <li class="nav-item">
-          <a class="nav-link" style="margin-right:100px;" href="/">Inicio</a>
+          <a class="nav-link" style="margin-right:50px;" href="/">Inicio</a>
         </li>
         <li class="nav-item" style="margin-left: 10px;">
           <a class="nav-link" href="{{ route('ads') }}">Anuncios</a>
         </li>
       </ul>
 
-
-
       <ul class="navbar-item">
         <li class="nav-item dropdown" style="list-style-type: none;">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 1.35rem; margin-bottom: -10px; text-decoration: none;">
             Categorías
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="transform: translate3d(0,20px,0);">
             <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'coches']) }}">Coches</a></li>
             <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'motos']) }}">Motos</a></li>
             <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'hogar']) }}">Hogar</a></li>
             <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'electronica']) }}">Electrónica</a></li>
             <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'moviles']) }}">Móviles</a></li>
             <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'ordenadores']) }}">Ordenadores</a></li>
-             </ul>
+          </ul>
         </li>
       </ul>
 
-
-      
-
-      <form class=" d-flex" role="search">
+      <form class="d-flex" role="search">
         <input class="search form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="search btn btn-outline-success" type="submit">Search</button>
       </form>
-
 
       @auth
       <ul class="navbar-item">
@@ -51,23 +45,19 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 1.35rem; margin-bottom: -10px; text-decoration: none;">
             Colaborador
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="transform: translate3d(0,20px,0);">
             <li><a class="dropdown-item" href="{{ route('create') }}">Create Article</a></li>
           </ul>
         </li>
       </ul>
       @endauth
 
-
-
-
-      
       <ul class="navbar-item">
         <li class="nav-item dropdown" style="list-style-type: none;">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 1.35rem; margin-bottom: -10px; text-decoration: none;">
             Login
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="transform: translate3d(0,20px,0);">
             @guest
             <li>
               <a class="dropdown-item" href="{{ route('login') }}">Entrar</a>
