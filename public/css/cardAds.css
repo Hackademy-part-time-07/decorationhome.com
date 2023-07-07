@@ -1,21 +1,22 @@
 .card-columns {
-    column-count: 2;
-    /* Espacio entre las columnas de las tarjetas */
-
+    display: flex;
+    justify-content: center; /* Centra las columnas horizontalmente */
+    gap: 20px; /* Espacio entre las tarjetas */
+    flex-wrap: wrap;
 }
-
-
 
 .card {
     background-color: antiquewhite;
     margin-bottom: 30px;
-    margin-right: 15px; /* Espaciado entre las tarjetas */
-    display: flex; /* Muestra las tarjetas como flexbox */
-    flex-direction: column; /* Coloca el contenido en una columna */
-    height: 700px; /* Establece una altura del 100% para todas las tarjetas */
-    width: 400px;
-    break-inside: avoid; /* Evita que las tarjetas se corten entre columnas */
+    flex-basis: 400px; /* Ancho de cada tarjeta */
+    height: 700px;
+    break-inside: avoid;
 }
+
+
+
+
+
 
 
 .card img {

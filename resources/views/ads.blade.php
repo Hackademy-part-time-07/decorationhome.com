@@ -19,7 +19,7 @@
                 <div class="col-md-8">
                     @if($ads->isEmpty())
                     <p>No hay nada en está categoría puedes <a href="{{ route('create') }}">publicar</a> algo</p>
-                        <p>o Volver al <a href="/">inicio</a> y comprar alguno de nuestro muchos productos de otras categorias</p>
+                        <p>o Volver al <a href="/">inicio</a> y comprar alguno de nuestro muchos productos de otra categoria.</p>
                     @else
                         <div class="card-columns">
                             @foreach($ads as $ad)
