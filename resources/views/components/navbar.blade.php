@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg" style="padding-left: 15px; padding-right: 15px;">
+<nav class="navbar navbar-expand-lg" style="padding-left: 15px; padding-right: 15px; margin-bottom: 3.5rem;">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
       <img src="{{ asset('images/HOMEDECORATION.COM.png') }}" alt="Logo" width="250px" height="220px">
