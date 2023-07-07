@@ -9,70 +9,59 @@
     </button>
 
     <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
-      <ul class="navbar-item" style="list-style-type: none; display:flex; justify-content: space-around;">
+      <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="nav-link" style="margin-right:50px;" href="/">Inicio</a>
         </li>
-        <li class="nav-item" style="margin-left: 10px;">
+        <li class="nav-item" style="margin-right: 40px; ">
           <a class="nav-link" href="{{ route('ads') }}">Anuncios</a>
         </li>
-      </ul>
-
-      <ul class="navbar-item">
-        <li class="nav-item dropdown" style="list-style-type: none;">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 1.35rem; margin-bottom: -10px; text-decoration: none;">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCategories" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Categorías
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="transform: translate3d(0,20px,0);">
-            <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'coches']) }}">Coches</a></li>
-            <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'motos']) }}">Motos</a></li>
-            <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'hogar']) }}">Hogar</a></li>
-            <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'electronica']) }}">Electrónica</a></li>
-            <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'moviles']) }}">Móviles</a></li>
-            <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'ordenadores']) }}">Ordenadores</a></li>
-          </ul>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownCategories">
+            <a class="dropdown-item" href="{{ route('ads.category', ['category' => 'coches']) }}">Coches</a>
+            <a class="dropdown-item" href="{{ route('ads.category', ['category' => 'motos']) }}">Motos</a>
+            <a class="dropdown-item" href="{{ route('ads.category', ['category' => 'hogar']) }}">Hogar</a>
+            <a class="dropdown-item" href="{{ route('ads.category', ['category' => 'electronica']) }}">Electrónica</a>
+            <a class="dropdown-item" href="{{ route('ads.category', ['category' => 'moviles']) }}">Móviles</a>
+            <a class="dropdown-item" href="{{ route('ads.category', ['category' => 'ordenadores']) }}">Ordenadores</a>
+          </div>
         </li>
       </ul>
 
-      <form class="d-flex" role="search">
-        <input class="search form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="search btn btn-outline-success" type="submit">Search</button>
+      <form class="search form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
 
-      @auth
-      <ul class="navbar-item">
-        <li class="nav-item dropdown" style="list-style-type: none;">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 1.35rem; margin-bottom: -10px; text-decoration: none;">
+      <ul class="navbar-nav">
+        @auth
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCollaborator" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Colaborador
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="transform: translate3d(0,20px,0);">
-            <li><a class="dropdown-item" href="{{ route('create') }}">Create Article</a></li>
-          </ul>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownCollaborator">
+            <a class="dropdown-item" href="{{ route('create') }}">Create Article</a>
+          </div>
         </li>
-      </ul>
-      @endauth
+        @endauth
 
-      <ul class="navbar-item">
-        <li class="nav-item dropdown" style="list-style-type: none;">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 1.35rem; margin-bottom: -10px; text-decoration: none;">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLogin" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Login
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="transform: translate3d(0,20px,0);">
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownLogin">
             @guest
-            <li>
-              <a class="dropdown-item" href="{{ route('login') }}">Entrar</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="{{ route('register') }}">Registro</a>
-            </li>
+            <a class="dropdown-item" href="{{ route('login') }}">Entrar</a>
+            <a class="dropdown-item" href="{{ route('register') }}">Registro</a>
             @endguest
-            <li>
-              <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="font-size: 1rem; margin-bottom: -10px;">Logout</a>
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-              </form>
-            </li>
-          </ul>
+            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              @csrf
+            </form>
+          </div>
         </li>
       </ul>
     </div>
