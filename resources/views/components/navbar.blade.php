@@ -1,70 +1,57 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary ">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/" style="margin-top: -40px;">
-      <img src="{{ asset('images/HOMEDECORATION.COM.png') }}" alt="Logo" width="250px" height="250px">
+    <a class="navbar-brand" href="/" style="margin-top: -40px; margin-left:0;">
+      <img src="{{ asset('images/HOMEDECORATION.COM.png') }}" alt="Logo" style="margin-bottom:-60px" width="250px" height="250px">
     </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
-      <ul class="navbar-item" style="list-style-type: none; display:flex; justify-content: space-around;">
-        <li class="nav-item">
+    <div class="collapse navbar-collapse  nav_ul" id="navbarNav">
+      <ul class="nav_ul">
+        <li>
           <a class="nav-link" href="/">Inicio</a>
         </li>
-        <li class="nav-item" style="margin-left: 10px;">
-          <a class="nav-link" href="{{ route('ads') }}">Anuncios</a>
+        <li>
+          <a class="nav-link" style="padding-left: 6rem;" href="{{ route('ads') }}">Anuncios</a>
         </li>
       </ul>
 
 
-
-      <ul class="navbar-item">
-        <li class="nav-item dropdown" style="list-style-type: none;">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 1.35rem; margin-bottom: -10px; text-decoration: none;">
-            Categorías
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'coches']) }}">coches</a></li>
-            <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'motos']) }}">Motos</a></li>
-            <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'hogar']) }}">Hogar</a></li>
-            <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'electronica']) }}">Electrónica</a></li>
-            <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'moviles']) }}">Móviles</a></li>
-            <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'ordenadores']) }}">Ordenadores</a></li>
-             </ul>
-        </li>
-      </ul>
-
-
+    <ul class="nav_ul"">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Categorías
+              </a>
+              <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'coches']) }}">coches</a></li>
+                <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'motos']) }}">Motos</a></li>
+                <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'hogar']) }}">Hogar</a></li>
+                <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'electronica']) }}">Electrónica</a></li>
+                <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'moviles']) }}">Móviles</a></li>
+                <li><a class="dropdown-item" href="{{ route('ads.category', ['category' => 'ordenadores']) }}">Ordenadores</a></li>
+                </ul>
+            </li>
+          </ul>
+ 
       
-
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-
-
       @auth
-      <ul class="navbar-item">
+      <ul class="nav_ul ">
         <li class="nav-item dropdown" style="list-style-type: none;">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 1.35rem; margin-bottom: -10px; text-decoration: none;">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Colaborador
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="{{ route('create') }}">Create Article</a></li>
+            <li><a href="{{ route('create') }}">Crear articulo</a></li>
           </ul>
         </li>
       </ul>
       @endauth
 
-
-
-
-      
       <ul class="navbar-item">
-        <li class="nav-item dropdown" style="list-style-type: none;">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 1.35rem; margin-bottom: -10px; text-decoration: none;">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
             Login
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">

@@ -1,0 +1,22 @@
+.navbar-expand-lg{
+    display: flex;
+    width: 80vw;
+    margin: 0 10vw;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10vw;
+    box-shadow: 0px 10px 15px -3px var(--principal);
+    background-color:rgb(230, 236, 241);
+    border-radius: 1rem;
+    opacity: 0.9;
+    margin-bottom:3.5rem;
+}
+.nav_ul{
+    display: flex;
+}
+.nav_ul{
+    justify-content:space-between;
+    align-items: center;
+    font-size: 1.5rem;
+    
+}
