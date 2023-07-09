@@ -42,11 +42,12 @@
                                 Actualizar Roles
                             </button>
                         </form>
-                        <form action="{{ route('dashboard.updateRole', $user->id) }}" method="POST" class="inline">
-
+                        <form action="{{ route('dashboard.destroyUser', $user->id) }}" method="POST" class="inline">
                             @csrf
                             @method('DELETE')
-                            <button type="submit">Eliminar Usuario</button>
+                            <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                                Eliminar Usuario
+                            </button>
                         </form>
                     </td>
                 </tr>

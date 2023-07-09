@@ -2,6 +2,11 @@
     <x-slot name="title">
         {{ $categoryName ?? 'Lista de Anuncios' }}
     </x-slot>
+    @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
     <div class="container">
         @if(request()->is('/'))
             <h1>{{ $welcomeMessage ?? '' }}</h1>

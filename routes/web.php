@@ -10,11 +10,12 @@ use App\Models\User;
 
 
 Route::get('/', function () {
-    $ads = Ad::latest()->paginate(6); // Obtener los últimos anuncios creados con paginación
+    $ads = Ad::where('is_accepted', 1)->latest()->paginate(6); // Obtener los últimos anuncios aceptados con paginación
     $categoryName = null; // Establecer el valor predeterminado para evitar el error
-    $welcomeMessage = '¡Bienvenido/a! Estas son las últimas publicaciones de nuestro vendedores'; // Mensaje de bienvenida
+    $welcomeMessage = '¡Bienvenido/a! Estas son las últimas publicaciones de nuestros vendedores'; // Mensaje de bienvenida
     return view('ads', compact('ads', 'categoryName', 'welcomeMessage')); // Pasar las variables a la vista
 });
+
 
 
 Route::get('/ad/create', [AdController::class, 'create'])->name('create'); //metodo para llegar al form crear
@@ -28,3 +29,6 @@ Route::get('/dashboard', [RevisorController::class, 'dashboard'])->name('dashboa
 Route::post('/dashboard/{id}', [RevisorController::class, 'updateRole'])->name('dashboard.updateRole');
 Route::get('/dashboardrevisor', [RevisorController::class, 'dashboardRevisor'])->name('dashboardrevisor');
 Route::post('/dashboardrevisor/{id}', [RevisorController::class, 'update'])->name('dashboardrevisor.update');
+Route::delete('/users/{id}', [RevisorController::class, 'destroyUser'])->name('dashboard.destroyUser');
+
+Route::delete('/dashboardrevisor/delete/{id}', [RevisorController::class, 'destroyAd'])->name('dashboardrevisor.destroyAd');

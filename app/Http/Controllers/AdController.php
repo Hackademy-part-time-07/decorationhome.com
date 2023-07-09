@@ -41,7 +41,7 @@ class AdController extends Controller
         $categoryName = null; // Establecer el valor predeterminado para evitar el error
 
         return redirect()->route('ads')->with([
-            'success' => 'El anuncio ha sido guardado exitosamente.',
+            'success' => 'El anuncio ha sido guardado exitosamente. En cuanto lo revisemos será publicado.',
             'categoryName' => $categoryName
         ]);
     }
@@ -60,10 +60,10 @@ class AdController extends Controller
     public function showAds()
     {
         if (request()->is('/')) {
-            $slicedAds = Ad::latest()->take(6)->get();
+            $slicedAds = Ad::where('is_accepted', 1)->latest()->take(6)->get();
             $ads = collect([]); // Crear una colección vacía para el paginador
         } else {
-            $ads = Ad::latest()->paginate(10);
+            $ads = Ad::where('is_accepted', 1)->latest()->paginate(10);
             $slicedAds = $ads->take(10);
         }
 
@@ -75,7 +75,7 @@ class AdController extends Controller
 
     public function showAdsByCategory($category)
     {
-        $ads = Ad::whereHas('category', function ($query) use ($category) {
+        $ads = Ad::where('is_accepted', 1)->whereHas('category', function ($query) use ($category) {
             $query->where('name', $category);
         })->paginate(6);
 
@@ -85,5 +85,4 @@ class AdController extends Controller
 
         return view('ads', compact('slicedAds', 'categoryName'))->with('ads', $ads);
     }
-
 }

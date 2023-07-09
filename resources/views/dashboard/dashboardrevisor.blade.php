@@ -3,6 +3,12 @@
         Dashboard
     </x-slot>
 
+    @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
     <div class="container">
         <h1>Dashboard</h1>
 
@@ -13,10 +19,9 @@
                         <!-- Resto del código del anuncio -->
         
                         <div class="card-body">
-
         
                             <!-- Formulario para editar los datos del anuncio -->
-                                <form action="{{ route('dashboardrevisor.update', ['id' => $ad->id]) }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('dashboardrevisor.update', ['id' => $ad->id]) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                     <label for="image">Imagen</label>
@@ -25,7 +30,6 @@
                                     @endif
                                     <input type="file" name="image" class="form-control">
                                 </div>
-                                
         
                                 <div class="form-group">
                                     <label for="title">Título</label>
@@ -42,13 +46,28 @@
                                     <input type="number" name="price" value="{{ $ad->price }}" class="form-control">
                                 </div>
         
+                                <div class="form-group">
+                                    <label for="is_accepted">Aprobado</label>
+                                    <select name="is_accepted" class="form-control">
+                                        <option value="0" {{ $ad->is_accepted == 0 ? 'selected' : '' }}>No</option>
+                                        <option value="1" {{ $ad->is_accepted == 1 ? 'selected' : '' }}>Sí</option>
+                                    </select>
+                                </div>
+        
                                 <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                            </form>
+        
+                            <!-- Formulario para eliminar el anuncio -->
+                            <form action="{{ route('dashboardrevisor.destroyAd', ['id' => $ad->id]) }}" method="POST" class="mt-2">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Eliminar anuncio</button>
                             </form>
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
-        
     </div>
 </x-layout>
+

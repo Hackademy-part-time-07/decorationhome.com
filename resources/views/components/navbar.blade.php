@@ -43,9 +43,14 @@
             Colaborador
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownCollaborator">
-            <a class="dropdown-item" href="{{ route('create') }}">Create Article</a>
-            <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
-
+            <a class="dropdown-item" href="{{ route('create') }}">Create Anuncio</a>
+            @auth
+            @if (auth()->user()->is_revisor == 1)
+            <a class="dropdown-item" href="{{ route('dashboard') }}">Admin. Revisores</a>
+                    <a class="dropdown-item" href="{{ route('dashboardrevisor') }}">Editar Anuncios</a>
+            @endif
+        @endauth
+        
           </div>
         </li>
         @endauth

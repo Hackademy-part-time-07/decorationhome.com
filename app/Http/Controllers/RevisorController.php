@@ -67,6 +67,13 @@ public function update(Request $request, $id)
         $image->storeAs('public/images', $imageName);
         $ad->image = $imageName;
     }
+
+    // Actualizar el campo is_accepted si se envió en el formulario
+    if ($request->has('is_accepted')) {
+        $ad->is_accepted = $request->input('is_accepted');
+    } else {
+        $ad->is_accepted = null; // Si no se envió, se establece como null
+    }
     
     // Actualizar otros campos según sea necesario
     
@@ -76,8 +83,29 @@ public function update(Request $request, $id)
     return redirect()->route('dashboardrevisor')->with('success', 'Anuncio actualizado exitosamente.');
 }
 
+public function destroyUser($id)
+{
+    // Obtener el usuario a eliminar
+    $user = User::findOrFail($id);
 
+    // Realizar la eliminación del usuario
+    $user->delete();
 
+    // Redirigir de vuelta al dashboard o a la página que desees
+    return redirect()->route('dashboard')->with('success', 'Usuario eliminado exitosamente.');
+}
+
+public function destroyAd($id)
+{
+    // Obtener el anuncio a eliminar
+    $ad = Ad::findOrFail($id);
+
+    // Realizar la eliminación del anuncio
+    $ad->delete();
+
+    // Redirigir de vuelta al dashboard o a la página que desees
+    return redirect()->route('dashboardrevisor')->with('success', 'Anuncio eliminado exitosamente.');
+}
 
 
 }
