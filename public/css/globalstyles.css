@@ -31,16 +31,7 @@ h1 {
 ul,ol{
   list-style: none;
 }
-.btn{
-  width: 10vw;
-  background-color:var(--principal);
-  text-align: center;
-  padding: 10px;
-  border-radius:6%;
-  transition: 0.5s all ease-out;
-  color: white;
-  height: auto;
-}
+
 a{
   text-decoration: none;
 }

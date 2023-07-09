@@ -1,10 +1,13 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdController;
+use App\Http\Controllers\RevisorController;
 use App\Http\Livewire\CreateAd;
 use App\Http\Controllers\HomeController;
 use App\Models\Ad;
 use App\Models\Category;
+use App\Models\User;
+
 
 Route::get('/', function () {
     $ads = Ad::latest()->paginate(6); // Obtener los últimos anuncios creados con paginación
@@ -21,3 +24,7 @@ Route::get('/ads/{category}', [AdController::class, 'showAdsByCategory'])->name(
 Route::get('/ad/{id}', [AdController::class, 'show'])->name('ad.show');
 
 
+Route::get('/dashboard', [RevisorController::class, 'dashboard'])->name('dashboard');
+Route::post('/dashboard/{id}', [RevisorController::class, 'updateRole'])->name('dashboard.updateRole');
+Route::get('/dashboardrevisor', [RevisorController::class, 'dashboardRevisor'])->name('dashboardrevisor');
+Route::post('/dashboardrevisor/{id}', [RevisorController::class, 'update'])->name('dashboardrevisor.update');

@@ -1,11 +1,11 @@
   .navbar-expand-lg {
     display: flex;
-    width: 80vw;
-    margin: 0 10vw;
+    width: 100vw;
+    margin: 0 0vw;
     justify-content: space-between;
     align-items: center;
     padding: 0 10vw;
-    box-shadow: 0px 10px 15px -3px var(--principal);
+    box-shadow: 0px 10px 15px -3px rgb(49, 46, 46);
     background-color: antiquewhite;
     border-radius: 1rem;
     opacity: 0.9;
@@ -14,15 +14,7 @@
     transition: top 0.3s ease-in-out;
   }
 
-.nav_ul{
-  display: flex;
-}
-.nav_ul{
-  justify-content:space-between;
-  align-items: center;
-  font-size: 1.5rem;
 
-}
 .search {
   display: none;
 }

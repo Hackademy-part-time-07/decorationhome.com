@@ -44,6 +44,8 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownCollaborator">
             <a class="dropdown-item" href="{{ route('create') }}">Create Article</a>
+            <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
+
           </div>
         </li>
         @endauth
@@ -57,10 +59,14 @@
             <a class="dropdown-item" href="{{ route('login') }}">Entrar</a>
             <a class="dropdown-item" href="{{ route('register') }}">Registro</a>
             @endguest
+            @auth
+              
+          
             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
               @csrf
             </form>
+            @endauth
           </div>
         </li>
       </ul>

@@ -7,7 +7,7 @@
 
     <h1>Register</h1>
 
-    <div class="navbar">
+    <div class="navbar-expand-lg" style="padding: 10px;">
 
     <form method="POST" action="{{ route('register') }}">
         @csrf
