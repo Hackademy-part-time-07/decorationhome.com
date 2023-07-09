@@ -16,6 +16,9 @@
         <li class="nav-item" style="margin-right: 40px; ">
           <a class="nav-link" href="{{ route('ads') }}">Anuncios</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('request.reviewer') }}" style="margin-right: 40px; ">Empleo</a>
+      </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCategories" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Categorías
@@ -30,7 +33,7 @@
           </div>
         </li>
       </ul>
-
+      
       <form class="search form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -45,10 +48,12 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdownCollaborator">
             <a class="dropdown-item" href="{{ route('create') }}">Create Anuncio</a>
             @auth
-            @if (auth()->user()->is_revisor == 1)
+            @if (auth()->user()->is_admin == 1)
             <a class="dropdown-item" href="{{ route('dashboard') }}">Admin. Revisores</a>
-                    <a class="dropdown-item" href="{{ route('dashboardrevisor') }}">Editar Anuncios</a>
             @endif
+            @if (auth()->user()->is_revisor == 1)
+                    <a class="dropdown-item" href="{{ route('dashboardrevisor') }}">Editar Anuncios</a>
+                    @endif
         @endauth
         
           </div>

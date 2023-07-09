@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Ad;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+
 
 
 
@@ -30,18 +32,24 @@ class RevisorController extends Controller
     }
 
     public function updateRole(Request $request, $id)
-
-{
-    // Obtener el usuario a partir del ID
-    $user = User::findOrFail($id);
+    {
+        // Obtener el usuario a partir del ID
+        $user = User::findOrFail($id);
+        
+        // Verificar si el usuario que realiza la solicitud tiene el atributo is_admin igual a 1
+        if (Auth::user()->is_admin == 1) {
+            // Actualizar los roles del usuario según los valores enviados en el formulario
+            $user->is_revisor = $request->has('is_revisor') ? 1 : 0;
+            $user->save();
+        
+            // Redirigir de vuelta al dashboard o a la página que desees
+            return redirect()->route('dashboard')->with('success', 'Roles actualizados exitosamente.');
+        }
+        
+        // Si el usuario que realiza la solicitud no tiene permisos de administrador, mostrar un mensaje de error o redirigir a una página de error
+        return redirect()->route('dashboard')->with('error', 'No tienes permiso para actualizar los roles.');
+    }
     
-    // Actualizar los roles del usuario según los valores enviados en el formulario
-    $user->is_revisor = $request->has('is_revisor') ? 1 : 0;
-    $user->save();
-    
-    // Redirigir de vuelta al dashboard o a la página que desees
-    return redirect()->route('dashboard')->with('success', 'Roles actualizados exitosamente.');
-}
 
 public function dashboardRevisor()
 {

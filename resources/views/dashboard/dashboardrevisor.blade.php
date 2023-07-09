@@ -7,10 +7,12 @@
     <div class="alert alert-success">
         {{ session('success') }}
     </div>
-@endif
+    @endif
 
     <div class="container">
-        <h1>Dashboard</h1>
+        <h1>Editar anuncios</h1>
+
+        
 
         <div class="row">
             @foreach ($ads as $ad)
@@ -19,6 +21,7 @@
                         <!-- Resto del código del anuncio -->
         
                         <div class="card-body">
+                            <p>Autor: {{ $ad->user->name }}</p>
         
                             <!-- Formulario para editar los datos del anuncio -->
                             <form action="{{ route('dashboardrevisor.update', ['id' => $ad->id]) }}" method="POST" enctype="multipart/form-data">
@@ -70,4 +73,3 @@
         </div>
     </div>
 </x-layout>
-

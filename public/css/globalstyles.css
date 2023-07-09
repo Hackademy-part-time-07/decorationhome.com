@@ -12,6 +12,17 @@ h1 {
   text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.8); /* Sombreado para efecto de profundidad */
 }
 
+.empleo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #FF4500;
+  margin-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+
 .btn{
   background-color: rgb(172, 98, 8);
   color: black;

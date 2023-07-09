@@ -22,7 +22,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'is_revisor', // Agrega 'is_revisor' al array $fillable
+        'is_revisor', 
+        'is_admin',// Agrega 'is_revisor' al array $fillable
     ];
     
     /**
