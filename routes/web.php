@@ -2,6 +2,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdController;
 use App\Http\Controllers\RevisorController;
+use App\Http\Controllers\PublicController;
+
 use App\Http\Livewire\CreateAd;
 use App\Http\Controllers\HomeController;
 use App\Models\Ad;
@@ -15,6 +17,12 @@ Route::get('/', function () {
     $welcomeMessage = '¡Bienvenido/a! Estas son las últimas publicaciones de nuestros vendedores'; // Mensaje de bienvenida
     return view('ads', compact('ads', 'categoryName', 'welcomeMessage')); // Pasar las variables a la vista
 });
+
+Route::get('/request-reviewer', function () {
+    return view('request_reviewer');
+})->name('request.reviewer');
+
+Route::post('/request-reviewer', [PublicController::class, 'requestReviewer'])->name('request.reviewer');
 
 
 
