@@ -13,20 +13,19 @@
                         <!-- Resto del código del anuncio -->
         
                         <div class="card-body">
-                            <h5 class="card-title">{{ $ad->title }}</h5>
-                            <div class="card-text scrollable">{{ $ad->body }}</div>
-                            <p class="card-text">Precio: ${{ $ad->price }}</p>
-                            <p class="card-text">Categoría: <a href="{{ route('ads.category', ['category' => $ad->category->name]) }}">{{ optional($ad->category)->name }}</a></p>
-                            <p class="card-text">Fecha de creación: {{ $ad->created_at }}</p>
-                            <p class="card-text">Usuario: {{ optional($ad->user)->name }}</p>
-                            <a href="{{ route('ad.show', ['id' => $ad->id]) }}" class="btn">Ver detalles</a>
-        
-                            <hr>
+
         
                             <!-- Formulario para editar los datos del anuncio -->
-                            <form action="{{ route('dashboardrevisor.update', ['id' => $ad->id]) }}" method="POST">
-
+                                <form action="{{ route('dashboardrevisor.update', ['id' => $ad->id]) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
+                                <div class="form-group">
+                                    <label for="image">Imagen</label>
+                                    @if ($ad->image)
+                                        <img src="{{ asset('storage/images/' . $ad->image) }}" alt="Imagen actual" height="100">
+                                    @endif
+                                    <input type="file" name="image" class="form-control">
+                                </div>
+                                
         
                                 <div class="form-group">
                                     <label for="title">Título</label>

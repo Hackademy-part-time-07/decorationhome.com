@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Ad;
+use Illuminate\Support\Facades\Storage;
+
 
 
 class RevisorController extends Controller
@@ -57,6 +59,15 @@ public function update(Request $request, $id)
     $ad->title = $request->input('title');
     $ad->body = $request->input('body');
     $ad->price = $request->input('price');
+
+    // Procesar la imagen si se ha subido
+    if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $imageName = time() . '.' . $image->getClientOriginalExtension();
+        $image->storeAs('public/images', $imageName);
+        $ad->image = $imageName;
+    }
+    
     // Actualizar otros campos según sea necesario
     
     $ad->save();
@@ -64,5 +75,10 @@ public function update(Request $request, $id)
     // Redirigir de vuelta al dashboard o a la página que desees
     return redirect()->route('dashboardrevisor')->with('success', 'Anuncio actualizado exitosamente.');
 }
+
+
+
+
+
 }
 
