@@ -1,9 +1,9 @@
 <x-layout>
     <x-slot name="title">homedecoration - Vendo algo interesante</x-slot>
-    <div class="container">
+    <div class="container" style="margin-top: 70px;">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card1" style="background-color: antiquewhite; padding: 15px; margin-bottom: 20px;">
+                <div class="card1" style="background-color: #cbf0e4; padding: 15px; margin-bottom: 20px;">
                     <div class="card-header">
                        <b> <h2>Nuevo Anuncio</h2> </b>
                     </div>

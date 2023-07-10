@@ -5,7 +5,7 @@
         Register
     </x-slot>
 
-    <h1>Register</h1>
+    <h1 class="padingtop20">Register</h1>
 
     <div class="navbar-expand-lg" style="padding: 10px;">
 

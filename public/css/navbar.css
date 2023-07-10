@@ -17,7 +17,7 @@ body {
 .main-header::after {
   content: "HomeDeocoration.com";
   position: absolute;
-  bottom: 0;
+  margin-bottom: 30px;
   right: 50%;
   transform: translateX(50%);
   color: rgb(255, 255, 255);

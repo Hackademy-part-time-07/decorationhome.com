@@ -9,7 +9,7 @@
     </div>
     @endif
 
-    <div class="container">
+    <div class="container padingtop20" >
         <h1>Editar anuncios</h1>
 
         

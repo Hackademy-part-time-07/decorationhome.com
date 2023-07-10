@@ -1,5 +1,5 @@
 <x-layout>
-    <h1>Detalle</h1>
+    <h1 class="padingtop20">Detalle</h1>
 
     <div class="container">
         <div class="row justify-content-center">

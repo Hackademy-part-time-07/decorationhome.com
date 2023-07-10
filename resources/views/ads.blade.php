@@ -7,7 +7,7 @@
         {{ session('success') }}
     </div>
 @endif
-    <div class="container">
+    <div class="padingtop20 container" >
         @if(request()->is('/'))
             <h1 class="padingtop20">{{ $welcomeMessage ?? '' }}</h1>
         @endif
