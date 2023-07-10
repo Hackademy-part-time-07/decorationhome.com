@@ -13,7 +13,7 @@ h1 {
 }
 
 .empleo {
-  font-size: 20px;
+  font-size: 45px;
   font-weight: bold;
   color: #FF4500;
   margin-bottom: 10px;
@@ -22,6 +22,10 @@ h1 {
   letter-spacing: 2px;
 }
 
+
+.padingtop20{
+  padding-top: 20px;
+}
 
 .btn{
   background-color: rgb(172, 98, 8);
@@ -45,4 +49,16 @@ ul,ol{
 
 a{
   text-decoration: none;
+}
+
+
+body {
+  position: relative;
+  /* Ajusta el valor del left para dejar espacio para la barra de navegación */
+}
+
+/* Asegúrate de asignar un z-index mayor a los elementos que quieres que estén por encima de la barra de navegación */
+.your-div {
+  position: relative;
+  z-index: 1000; /* Asigna un valor mayor que el z-index de la barra de navegación */
 }

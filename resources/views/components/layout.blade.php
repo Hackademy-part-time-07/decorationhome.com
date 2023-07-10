@@ -18,9 +18,33 @@
   {{$slot}}
   <x-footer />
 
-  
+<script>
+ Obtén la barra de navegación y los elementos de la navbar
+const navbar = document.querySelector('.navbar');
+const navbarElements = document.querySelectorAll('.navbar *:not(.navbar-toggler)');
+
+// Escucha el evento mouseleave en la barra de navegación
+navbar.addEventListener('mouseleave', function () {
+  // Oculta todos los elementos de la navbar excepto el botón de alternancia y los dropdowns
+  navbarElements.forEach(function (element) {
+    if (!element.classList.contains('show')) {
+      element.style.display = 'none';
+    }
+  });
+});
+
+// Escucha el evento mouseenter en la barra de navegación
+navbar.addEventListener('mouseenter', function () {
+  // Muestra todos los elementos de la navbar
+  navbarElements.forEach(function (element) {
+    element.style.display = 'block';
+  });
+});
 
 
+
+
+  </script>
 
 
   

@@ -9,7 +9,7 @@
 @endif
     <div class="container">
         @if(request()->is('/'))
-            <h1>{{ $welcomeMessage ?? '' }}</h1>
+            <h1 class="padingtop20">{{ $welcomeMessage ?? '' }}</h1>
         @endif
 
         @if(request()->is('ads'))

@@ -1,72 +1,66 @@
 .card-columns {
     display: flex;
-    justify-content: center; /* Centra las columnas horizontalmente */
-    gap: 20px; /* Espacio entre las tarjetas */
+    justify-content: center;
+    gap: 20px;
     flex-wrap: wrap;
 }
 
 .card {
     background-color: antiquewhite;
     margin-bottom: 30px;
-    flex-basis: 400px; /* Ancho de cada tarjeta */
+    flex-basis: 400px;
     height: 700px;
     break-inside: avoid;
 }
 
-
-
-
-
-
-
 .card img {
-    flex: 1; /* Ocupa todo el espacio disponible dentro de la tarjeta */
-    object-fit: cover; /* Ajusta el tamaño de la imagen */
+    flex: 1;
+    object-fit: cover;
     width: 100%;
 }
 
 .card-body {
-    flex: 1; /* Ocupa todo el espacio disponible dentro de la tarjeta */
-    padding: 10px; /* Ajusta el espaciado interno */
-    display: flex; /* Muestra el contenido como flexbox */
-    flex-direction: column; /* Coloca el contenido en una columna */
-    overflow-y: auto; /* Agrega una barra de desplazamiento vertical si el contenido excede el espacio disponible */
-    justify-content: space-between; /* Distribuye el contenido verticalmente */
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    justify-content: space-between;
 }
 
 .card-body h5 {
-    margin-top: 0; /* Elimina el margen superior de la fila anterior (título) */
+    margin-top: 0;
 }
 
 .card-body .card-text {
-    margin-top: 10px; /* Espacio superior entre las filas (párrafos) */
+    margin-top: 10px;
 }
 
 .card-body .btn {
-    margin-top: auto; /* Coloca el botón en la parte inferior de la tarjeta */
+    margin-top: auto;
 }
 
-/* Clearfix para que las columnas comiencen al mismo nivel */
 .card-columns::after {
     content: "";
     display: table;
     clear: both;
 }
 
-
 @media (max-width: 991px) {
     .card-columns {
-        column-count: unset; /* Elimina la configuración de columnas */
         display: flex;
-        justify-content: center; /* Centra las tarjetas horizontalmente */
-        flex-wrap: wrap; /* Envuelve las tarjetas en múltiples filas */
+        justify-content: center;
+        flex-wrap: wrap;
     }
   
     .card {
         margin-top: 20px;
-        flex-basis: 80%; /* Ancho completo para cada tarjeta */
+        flex-basis: 50%; /* Dos tarjetas por fila en dispositivos móviles y tabletas */
     }
 }
 
-    
-  
+@media (max-width: 576px) {
+    .card {
+        flex-basis: 100%; /* Seis tarjetas por fila en pantallas de ancho menor o igual a 576px */
+    }
+}

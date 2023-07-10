@@ -1,20 +1,80 @@
-  .navbar-expand-lg {
-    display: flex;
-    width: 100vw;
-    margin: 0 0vw;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10vw;
-    box-shadow: 0px 10px 15px -3px rgb(49, 46, 46);
-    background-color: antiquewhite;
-    border-radius: 1rem;
-    opacity: 0.9;
-    margin-bottom: 3.5rem;
-    top: 0;
-    transition: top 0.3s ease-in-out;
-  }
+.navbar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-top: 50px;
+  border-radius: 1rem;
+  opacity: 0.9;
+  transition: width 0.3s ease-in-out;
+  z-index: 9999;
+}
 
+.navbar:hover {
+  background-color: rgb(31, 51, 51, 0.7);
+  color: rgb(218, 232, 246); 
+
+}
+
+.navbar-expanded {
+  width: 300px;
+}
+
+.navbar-toggler {
+  display: block;
+  margin-bottom: 10px; /* Agrega un margen inferior para separar el botón de alternancia de los enlaces */
+}
+
+.collapse.navbar-collapse {
+  overflow-y: auto;
+  height: calc(100% - 50px);
+}
+
+.navbar-nav {
+  flex-direction: column;
+  margin-top: 0; /* Elimina el margen superior para los enlaces */
+  padding: 0;
+}
+
+.nav-link {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: rgb(245, 15, 15);
+  text-decoration: none;
+  transition: background-color 0.3s ease-in-out;
+  text-align: left; /* Alinea los enlaces al borde izquierdo de la barra de navegación */
+}
+
+.nav-link:hover {
+  background-color: rgba(222, 62, 62, 0.1);
+}
+
+.show.navbar-nav {
+  display: flex;
+}
+
+.show .nav-link {
+  display: block;
+}
 
 .search {
   display: none;
+}
+
+@media (max-width: 991px) {
+  .navbar {
+    left: 0;
+  }
+
+  
+
+  .show {
+    left: 0;
+  }
+
+  /* Resto del código CSS existente para el media query */
 }
