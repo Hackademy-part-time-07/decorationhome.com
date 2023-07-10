@@ -48,14 +48,15 @@
                     @endif
                 </div>
             </div>
-        </div>
-    </div>
-
-    @if (request()->is('/'))
+            @if (request()->is('/'))
         <!-- No mostrar el paginador -->
     @else
         <div class="d-flex justify-content-center">
-            {{ $ads->links('pagination::bootstrap-4') }}
+            {{ $ads->links('pagination::bootstrap-5') }}
         </div>
     @endif
+        </div>
+    </div>
+
+    
 </x-layout>

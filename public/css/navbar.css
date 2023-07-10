@@ -6,34 +6,34 @@ body {
 .main-header {
   background: #cbf0e4;
   width: 100%;
-  height: 50px;
+  height: 44px;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 9999; /* Asegurarse de que el encabezado principal esté en la parte superior */
   opacity: 0.9;
-  text-shadow: 2px 2px 4px rgba(110, 109, 109, 0.8);
-  -webkit-text-stroke: 1px rgb(0, 0, 0);
+  text-shadow: 2px 2px 4px rgba(250, 245, 245, 0.8);
+  -webkit-text-stroke: 0.75px rgb(255, 0, 255);
 }
 
 .main-header::after {
-  content: "HomeDeocoration.com";
+  content: "HomeDecoration.com";
   position: absolute;
   margin-bottom: 30px;
   right: 50%;
   transform: translateX(50%);
-  color: rgb(255, 255, 255);
-  font-size: 30px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: rgb(249, 248, 249);
+  font-size: 32px;
+  text-shadow: 2px 2px 4px rgba(7, 109, 2, 0.5);
 }
 
 nav {
   position: fixed; /* Cambiado a fijo para asegurarse de que la barra de navegación esté fija en la parte superior */
-  top: 50px;
+  top: 43px;
   left: 0;
   width: 200px;
-  height: calc(100vh - 50px);
-  background: #a9f5dc;
+  height: calc(100vh - 10px);
+  background: #68d3b0;
   transform: translateX(-100%);
   transition: .4s ease;
   z-index: 9998; /* Asegurarse de que la barra de navegación esté debajo del encabezado principal */

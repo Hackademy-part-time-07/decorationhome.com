@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 
-
 class AdController extends Controller
 {
     public function create()
@@ -62,28 +61,27 @@ class AdController extends Controller
 
     public function showAds()
 {
-    $adsQuery = Ad::where('is_accepted', 1)->latest();
+    $ads = Ad::where('is_accepted', 1)->latest()->paginate(6);
 
-    $ads = $adsQuery->paginate(6);
-    $slicedAds = $adsQuery->take(6)->get();
+    $categoryName = null;
+    $welcomeMessage = '¡Bienvenido/a! Estas son las últimas publicaciones';
 
-    $categoryName = null; // Establecer el valor predeterminado para evitar el error
-    $welcomeMessage = '¡Bienvenido/a! Estas son las últimas publicaciones'; // Mensaje de bienvenida
-
-    return view('ads', compact('slicedAds', 'categoryName', 'welcomeMessage'))->with('ads', $ads);
+    return view('ads', compact('ads', 'categoryName', 'welcomeMessage'));
 }
 
 
-    public function showAdsByCategory($category)
-    {
-        $ads = Ad::where('is_accepted', 1)->whereHas('category', function ($query) use ($category) {
-            $query->where('name', $category);
-        })->paginate(6);
+public function showAdsByCategory($category)
+{
+    $categoryName = Category::where('name', $category)->value('name');
 
-        $slicedAds = $ads->take(6);
+    $query = Ad::whereHas('category', function ($query) use ($category) {
+        $query->where('name', $category);
+    })->latest();
 
-        $categoryName = Category::where('name', $category)->value('name');
+    $ads = $query->paginate(6);
 
-        return view('ads', compact('slicedAds', 'categoryName'))->with('ads', $ads);
-    }
+    $ads->appends(['category' => $category]); // Agregar el parámetro de la categoría a la paginación
+
+    return view('ads', compact('ads', 'categoryName'));
+}
 }

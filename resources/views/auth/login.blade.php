@@ -1,8 +1,8 @@
 <x-layout>
-    <div class="container">
+    <div class="container" style="margin-top: 50px;">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
+                <div class="card" style="height: 400px; margin-top: 20px;">
                     <div class="card-header">{{ __('Login') }}</div>
 
                     <div class="card-body">

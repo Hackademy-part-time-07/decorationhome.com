@@ -51,11 +51,13 @@ class RevisorController extends Controller
     }
     
 
-public function dashboardRevisor()
-{
-    $ads = Ad::all();
-    return view('dashboard.dashboardrevisor', compact('ads'));
-}
+    public function dashboardRevisor()
+    {
+        $ads = Ad::orderBy('created_at', 'desc')->get();
+    
+        return view('dashboard.dashboardrevisor', compact('ads'));
+    }
+    
 
 
 public function update(Request $request, $id)
