@@ -12,6 +12,8 @@ body {
   left: 0;
   z-index: 9999; /* Asegurarse de que el encabezado principal esté en la parte superior */
   opacity: 0.9;
+  text-shadow: 2px 2px 4px rgba(110, 109, 109, 0.8);
+  -webkit-text-stroke: 1px rgb(0, 0, 0);
 }
 
 .main-header::after {
@@ -78,4 +80,17 @@ nav {
 
 .btn-nav:hover {
   background: rgba(0, 0, 0, .3);
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 20px;
+  margin-left: -15px;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
 }

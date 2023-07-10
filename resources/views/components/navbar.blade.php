@@ -58,10 +58,11 @@
                     </form>
                     @endauth
                     
-                </div>
-                <a href="/"></a>
-                <img src="{{ asset('images/homedecoration.com.png') }}" alt="Logo" width="250" height="250" style="margin-left: -60px;">
-            </a>
+                    <li class="logo-container">
+                        <a href="/" class="logo-link">
+                            <img src="{{ asset('images/homedecoration.com.png') }}" alt="Logo" width="250" height="250">
+                        </a>
+                    </li>
                 
             </li>
             

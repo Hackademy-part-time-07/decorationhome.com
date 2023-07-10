@@ -3,11 +3,11 @@
         {{ $categoryName ?? 'Lista de Anuncios' }}
     </x-slot>
     @if(session('success'))
-    <div class="alert alert-success">
+    <div class="alert alert-success" style="padding-top: 60px;">
         {{ session('success') }}
     </div>
-@endif
-    <div class="padingtop20 container" >
+    @endif
+    <div class="padingtop20 container">
         @if(request()->is('/'))
             <h1 class="padingtop20">{{ $welcomeMessage ?? '' }}</h1>
         @endif
@@ -18,13 +18,12 @@
 
         <h1>{{ ucfirst($categoryName) }}</h1>
 
-
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     @if($ads->isEmpty())
-                    <p>No hay nada en está categoría puedes <a href="{{ route('create') }}">publicar</a> algo</p>
-                        <p>o Volver al <a href="/">inicio</a> y comprar alguno de nuestro muchos productos de otra categoria.</p>
+                        <p>No hay nada en esta categoría, puedes <a href="{{ route('create') }}">publicar</a> algo</p>
+                        <p>O vuelve al <a href="/">inicio</a> y compra alguno de nuestros muchos productos de otra categoría.</p>
                     @else
                         <div class="card-columns">
                             @foreach($ads as $ad)
@@ -41,7 +40,7 @@
                                         <p class="card-text">Categoría: <a href="{{ route('ads.category', ['category' => $ad->category->name]) }}">{{ optional($ad->category)->name }}</a></p>
                                         <p class="card-text">Fecha de creación: {{ $ad->created_at }}</p>
                                         <p class="card-text">Usuario: {{ optional($ad->user)->name }}</p>
-                                        <a href="{{ route('ad.show', ['id' => $ad->id]) }}" class="btn">Ver detalles</a>
+                                        <a href="{{ route('ad.show', ['id' => $ad->id]) }}" class="btn" style="">Ver detalles</a>
                                     </div>
                                 </div>
                             @endforeach

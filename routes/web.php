@@ -40,3 +40,11 @@ Route::post('/dashboardrevisor/{id}', [RevisorController::class, 'update'])->nam
 Route::delete('/users/{id}', [RevisorController::class, 'destroyUser'])->name('dashboard.destroyUser');
 
 Route::delete('/dashboardrevisor/delete/{id}', [RevisorController::class, 'destroyAd'])->name('dashboardrevisor.destroyAd');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

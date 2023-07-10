@@ -1,9 +1,6 @@
+@extends('layouts.app')
 
-<x-layout>
-    <x-slot name="title">
-        Recuperar contraseña
-    </x-slot>
-
+@section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -28,6 +25,4 @@
         </div>
     </div>
 </div>
-
-
-<x-layout>
+@endsection

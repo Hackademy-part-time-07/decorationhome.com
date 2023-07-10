@@ -1,18 +1,26 @@
 .card-columns {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 20px;
-    flex-wrap: wrap;
 }
 
 .card {
-    background-color:  #cbf0e4;
+    background-color: #cbf0e4;
     margin-bottom: 30px;
-    flex-basis: 400px;
+    flex-basis: calc(50% - 10px);
     height: 700px;
     break-inside: avoid;
+    transition: background-color 0.3s ease;
 }
 
+.card:hover {
+    background-color: #f2f220; /* Color de fondo al pasar el cursor */
+}
+
+
+.card a:hover{
+    background-color: aqua;
+}
 .card img {
     flex: 1;
     object-fit: cover;
@@ -38,6 +46,7 @@
 
 .card-body .btn {
     margin-top: auto;
+    transition: none; /* Desactivar la transición del botón */
 }
 
 .card-columns::after {
@@ -46,21 +55,14 @@
     clear: both;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1199px) {
     .card-columns {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-  
-    .card {
-        margin-top: 20px;
-        flex-basis: 50%; /* Dos tarjetas por fila en dispositivos móviles y tabletas */
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 576px) {
-    .card {
-        flex-basis: 100%; /* Seis tarjetas por fila en pantallas de ancho menor o igual a 576px */
+    .card-columns {
+        grid-template-columns: 1fr;
     }
 }

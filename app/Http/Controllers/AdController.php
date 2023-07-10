@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Ad;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Collection;
+
 
 class AdController extends Controller
 {
@@ -58,20 +61,18 @@ class AdController extends Controller
     }
 
     public function showAds()
-    {
-        if (request()->is('/')) {
-            $slicedAds = Ad::where('is_accepted', 1)->latest()->take(6)->get();
-            $ads = collect([]); // Crear una colección vacía para el paginador
-        } else {
-            $ads = Ad::where('is_accepted', 1)->latest()->paginate(10);
-            $slicedAds = $ads->take(10);
-        }
+{
+    $adsQuery = Ad::where('is_accepted', 1)->latest();
 
-        $categoryName = null; // Establecer el valor predeterminado para evitar el error
-        $welcomeMessage = '¡Bienvenido/a! Estas son las últimas publicaciones'; // Mensaje de bienvenida
+    $ads = $adsQuery->paginate(6);
+    $slicedAds = $adsQuery->take(6)->get();
 
-        return view('ads', compact('slicedAds', 'categoryName', 'welcomeMessage'))->with('ads', $ads);
-    }
+    $categoryName = null; // Establecer el valor predeterminado para evitar el error
+    $welcomeMessage = '¡Bienvenido/a! Estas son las últimas publicaciones'; // Mensaje de bienvenida
+
+    return view('ads', compact('slicedAds', 'categoryName', 'welcomeMessage'))->with('ads', $ads);
+}
+
 
     public function showAdsByCategory($category)
     {
