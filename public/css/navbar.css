@@ -1,80 +1,81 @@
-.navbar {
+body {
+  margin: 0; /* Asegurarse de que no haya margen en el cuerpo */
+  padding: 0; /* Asegurarse de que no haya relleno en el cuerpo */
+}
+
+.main-header {
+  background: #cbf0e4;
+  width: 100%;
+  height: 50px;
   position: fixed;
-  left: 0;
   top: 0;
-  margin-left: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding-top: 50px;
-  border-radius: 1rem;
+  left: 0;
+  z-index: 9999; /* Asegurarse de que el encabezado principal esté en la parte superior */
   opacity: 0.9;
-  transition: width 0.3s ease-in-out;
-  z-index: 9999;
 }
 
-.navbar:hover {
-  background-color: rgb(31, 51, 51, 0.7);
-  color: rgb(218, 232, 246); 
-
+.main-header::after {
+  content: "HomeDeocoration.com";
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  transform: translateX(50%);
+  color: rgb(255, 255, 255);
+  font-size: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.navbar-expanded {
-  width: 300px;
+nav {
+  position: fixed; /* Cambiado a fijo para asegurarse de que la barra de navegación esté fija en la parte superior */
+  top: 50px;
+  left: 0;
+  width: 200px;
+  height: calc(100vh - 50px);
+  background: #a9f5dc;
+  transform: translateX(-100%);
+  transition: .4s ease;
+  z-index: 9998; /* Asegurarse de que la barra de navegación esté debajo del encabezado principal */
 }
 
-.navbar-toggler {
+.navigation li {
+  list-style: none;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, .5);
+}
+
+.navigation a {
+  color: var(--main-color);
   display: block;
-  margin-bottom: 10px; /* Agrega un margen inferior para separar el botón de alternancia de los enlaces */
-}
-
-.collapse.navbar-collapse {
-  overflow-y: auto;
-  height: calc(100% - 50px);
-}
-
-.navbar-nav {
-  flex-direction: column;
-  margin-top: 0; /* Elimina el margen superior para los enlaces */
-  padding: 0;
-}
-
-.nav-link {
-  padding: 10px 20px;
-  font-size: 16px;
-  color: rgb(245, 15, 15);
+  line-height: 3.5;
+  padding: 0 10px;
   text-decoration: none;
-  transition: background-color 0.3s ease-in-out;
-  text-align: left; /* Alinea los enlaces al borde izquierdo de la barra de navegación */
+  transition: .4s ease;
 }
 
-.nav-link:hover {
-  background-color: rgba(222, 62, 62, 0.1);
+.navigation a:hover {
+  transform: translateX(10%);
 }
 
-.show.navbar-nav {
-  display: flex;
-}
-
-.show .nav-link {
-  display: block;
-}
-
-.search {
+#btn-nav {
   display: none;
 }
 
-@media (max-width: 991px) {
-  .navbar {
-    left: 0;
-  }
+#btn-nav:checked ~ nav {
+  transform: translateX(0);
+}
 
-  
+.btn-nav {
+  color: var(--main-color);
+  font-size: 30px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+  padding: 6.5px 15px;
+  transition: .2s ease;
+  background: rgba(0, 0, 0, .1);
+}
 
-  .show {
-    left: 0;
-  }
-
-  /* Resto del código CSS existente para el media query */
+.btn-nav:hover {
+  background: rgba(0, 0, 0, .3);
 }
