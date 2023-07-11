@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary ">
+<nav class="navbar navbar-expand-lg ">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/" style="margin-top: -40px; margin-left:0;">
+    <a href="/" style="margin-top: -40px; margin-left:0;">
       <img src="{{ asset('images/HOMEDECORATION.COM.png') }}" alt="Logo" style="margin-bottom:-60px" width="250px" height="250px">
     </a>
 
@@ -49,22 +49,34 @@
       </ul>
       @endauth
 
-      <ul class="navbar-item">
+      <ul class="nav_ul">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
             Login
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownLogin">
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             @guest
-            <a class="dropdown-item" href="{{ route('login') }}">Entrar</a>
-            <a class="dropdown-item" href="{{ route('register') }}">Registro</a>
+            <li>
+              <a class="dropdown-item" href="{{ route('login') }}">Entrar</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{{ route('register') }}">Registro</a>
+            </li>
             @endguest
-            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-              @csrf
-            </form>
-          </div>
+          </ul>
+ 
         </li>
+      
+        <ul class="nav_ul">
+            <li>
+              <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="font-size: 1.5rem; padding-left: 3rem;">Logout</a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+              </form>
+            </li>
+        </ul>
+
+
       </ul>
     </div>
   </div>

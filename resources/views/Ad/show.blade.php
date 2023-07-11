@@ -1,10 +1,8 @@
 <x-layout>
     <h1>Detalle</h1>
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card1" style="background-color:antiquewhite; margin-bottom: 20px;">
+            <div class="contenedor_position">
+                <div class="card">
 
 
                     @if ($ad->image)
@@ -16,19 +14,19 @@
 
 
 
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $ad->title }}</h5>
-                        <p class="card-text">{{ $ad->body }}</p>
-                        <p class="card-text">Precio: ${{ $ad->price }}</p>
-                        <p class="card-text">Categoría:
+                    <div class="card_body">
+                        <h5>{{ $ad->title }}</h5>
+                        <p> <b>{{ $ad->body }}</b></p>
+                        <p>Precio: <b>${{ $ad->price }}</b></p>
+                        <p>Categoría:
                             @if ($ad->category)
-                                <a href="{{ route('ads.category', ['category' => $ad->category->name]) }}">{{ $ad->category->name }}</a>
+                                <a class="color_a" href="{{ route('ads.category', ['category' => $ad->category->name]) }}"> <b>{{ $ad->category->name }} </b></a>
                             @else
                                 Sin categoría
                             @endif
                         </p>
-                        <p class="card-text">Fecha de creación: {{ $ad->created_at }}</p>
-                        <p class="card-text">Usuario: {{ $ad->user->name }}</p>
+                        <p>Fecha de creación: <b>{{ $ad->created_at }}</b></p>
+                        <p>Usuario: <b>{{ $ad->user->name }}</b> </p>
                     </div>
                 </div>
             </div>

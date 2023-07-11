@@ -2,7 +2,7 @@
     <x-slot name="title">
         {{ $categoryName ?? 'Lista de Anuncios' }}
     </x-slot>
-    <div class="container">
+    <div>
         @if(request()->is('/'))
             <h1>{{ $welcomeMessage ?? '' }}</h1>
         @endif
@@ -14,14 +14,14 @@
         <h1>{{ ucfirst($categoryName) }}</h1>
 
 
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8">
+        <div>
+            <div>
+                <div class="contenedor_position">
                     @if($ads->isEmpty())
                     <p>No hay nada en está categoría puedes <a href="{{ route('create') }}">publicar</a> algo</p>
                         <p>o Volver al <a href="/">inicio</a> y comprar alguno de nuestro muchos productos de otra categoría.</p>
                     @else
-                        <div class="card-columns">
+                        <div class="card_columns">
                             @foreach($ads as $ad)
                                 <div class="card">
                                     @if ($ad->image)
@@ -29,14 +29,15 @@
                                     @else
                                         <img src="{{ asset('images/iphonese.jpg') }}" class="card-img-top" alt="Imagen de relleno">
                                     @endif
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ $ad->title }}</h5>
-                                        <div class="card-text scrollable">{{ $ad->body }}</div>
-                                        <p class="card-text">Precio: ${{ $ad->price }}</p>
-                                        <p class="card-text">Categoría: <a href="{{ route('ads.category', ['category' => $ad->category->name]) }}">{{ optional($ad->category)->name }}</a></p>
-                                        <p class="card-text">Fecha de creación: {{ $ad->created_at }}</p>
-                                        <p class="card-text">Usuario: {{ optional($ad->user)->name }}</p>
-                                        <a href="{{ route('ad.show', ['id' => $ad->id]) }}" class="btn">Ver detalles</a>
+                                    <div class="card_body">
+                                        <h5>{{ $ad->title }}</h5>
+                                        <div>{{ $ad->body }}</div>
+                                        <p>Precio: <b>${{ $ad->price }} </b></p>
+                                        <p>Categoría: <a class="color_a" href="{{ route('ads.category', ['category' => $ad->category->name]) }}"> <b>{{ optional($ad->category)->name }}</b> </a></p>
+                                        <p>Data: <b>{{ $ad->created_at }}</b></p>
+                                        <p>Usuario: <b>{{ optional($ad->user)->name }} </b> </p>
+                                        <button class="btn_card" type="summit"><a class="position_card" href="{{ route('ad.show', ['id' => $ad->id]) }}"> Ver detalles </a> </button>
+                                        
                                     </div>
                                 </div>
                             @endforeach

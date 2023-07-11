@@ -1,72 +1,93 @@
-.card-columns {
+.card_columns {
     display: flex;
     justify-content: center; /* Centra las columnas horizontalmente */
-    gap: 20px; /* Espacio entre las tarjetas */
+    padding: auto; /* Espacio entre las tarjetas */
     flex-wrap: wrap;
 }
-
+/* Esta es la parte de la carta */
 .card {
-    background-color: antiquewhite;
-    margin-bottom: 30px;
-    flex-basis: 400px; /* Ancho de cada tarjeta */
-    height: 700px;
-    break-inside: avoid;
+    position: relative;
+    display: flex; /* Muestra el contenido como flexbox */ 
+    margin: 1.5vw; /* Ajusta el espaciado interno */
+    flex-direction: column; /* Coloca el contenido en una columna */
+    justify-content: space-between; /* Distribuye el contenido verticalmente */
+    width: 25vw;
+    box-shadow: 0px 9px 33px -3px var(--shadow);
+    border-radius: 1rem;
 }
-
-
-
-
-
-
-
+/* esta position se encuentra en el login--> todavia esta en proceso */
+.position_login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Aca esta la imagen de la card */
 .card img {
     flex: 1; /* Ocupa todo el espacio disponible dentro de la tarjeta */
     object-fit: cover; /* Ajusta el tamaño de la imagen */
     width: 100%;
 }
 
-.card-body {
-    flex: 1; /* Ocupa todo el espacio disponible dentro de la tarjeta */
-    padding: 10px; /* Ajusta el espaciado interno */
-    display: flex; /* Muestra el contenido como flexbox */
+.card_body {
+    position: relative;
+    display: flex; /* Muestra el contenido como flexbox */ 
     flex-direction: column; /* Coloca el contenido en una columna */
-    overflow-y: auto; /* Agrega una barra de desplazamiento vertical si el contenido excede el espacio disponible */
     justify-content: space-between; /* Distribuye el contenido verticalmente */
+    word-wrap: break-word;
+    border-radius: 1rem;
+    background-color: rgb(250, 235, 215);
 }
-
-.card-body h5 {
-    margin-top: 0; /* Elimina el margen superior de la fila anterior (título) */
+.card_body h5{
+    padding-top: 1rem;
+    display: flex;
+    font-size: 2rem;
+    justify-content: center;
+    align-items: center;
 }
-
-.card-body .card-text {
-    margin-top: 10px; /* Espacio superior entre las filas (párrafos) */
+.card_body div{
+    padding: 0.5rem;
+    display: flex;
+    font-size: 1.5rem;
+    justify-content: center;
+    align-items: center;
 }
-
-.card-body .btn {
-    margin-top: auto; /* Coloca el botón en la parte inferior de la tarjeta */
+.color_a{
+    color: var(--secundario);
+    font-size: 1.5rem;
 }
-
-/* Clearfix para que las columnas comiencen al mismo nivel */
-.card-columns::after {
-    content: "";
-    display: table;
-    clear: both;
+.card_body p{
+    padding: 0.5rem;
+    display: flex;
+    font-size: 1.5rem;
+    justify-content:space-evenly;
+    align-items: center;
+    color: var(--secundario);
 }
-
-
-@media (max-width: 991px) {
-    .card-columns {
-        column-count: unset; /* Elimina la configuración de columnas */
-        display: flex;
-        justify-content: center; /* Centra las tarjetas horizontalmente */
-        flex-wrap: wrap; /* Envuelve las tarjetas en múltiples filas */
-    }
-  
-    .card {
-        margin-top: 20px;
-        flex-basis: 80%; /* Ancho completo para cada tarjeta */
-    }
+.btn_card{
+    border-radius: 1rem;
+    background-color: var(--btn);
+    height:2.5rem;
+    transition: 0.5s all ease-in-out;
+    color: white;
+    border: none;
 }
-
+.btn_card:hover{
+    background-color: var(--principal);
+}
+.position_btn{
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button a{
+    font-size: 1.5rem;
+    color:black;
     
-  
+}
+/* --------este es el contendor position de la card del show y del loginAccount ----------- */
+.contenedor_position{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
