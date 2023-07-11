@@ -28,7 +28,10 @@ class CreateAd extends Component
             'body' => $this->body,
             'price' => $this->price,
         ]);
-        session()->flash('message','Anuncio Creado con éxito');
+        session()->flash('createAd',[
+        'type'=>'success',
+        'text'=>'Anuncio Creado con éxito',
+        ]);
         $this->cleanForm();
     }
     public function update($propertyName)
