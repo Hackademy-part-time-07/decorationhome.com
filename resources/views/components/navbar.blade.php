@@ -40,7 +40,7 @@
       <ul class="nav_ul ">
         <li class="nav-item dropdown" style="list-style-type: none;">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Colaborador
+                      Colaborador
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a href="{{ route('create') }}">Crear articulo</a></li>

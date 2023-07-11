@@ -21,7 +21,9 @@ Route::get('/ads', [AdController::class, 'showAds'])->name('ads'); //metodo, est
 Route::get('/ads/{category}', [AdController::class, 'showAdsByCategory'])->name('ads.category');//para ver ads.blade por categorias.
 Route::get('/ad/{id}', [AdController::class, 'show'])->name('ad.show');
 
+Route::middleware(['isRevisor'])->group(function(){
 Route::get('/revisor',[RevisorController::class,'index'])->name(('revisor.home'));//metodo para llegar al Revisor
 Route::patch('/revisor/ad/{ad}/accept',[RevisorController::class, 'acceptAd'])->name('revisor.ad.accept');
 Route::patch('/revisor/ad/{ad}/reject',[RevisorController::class, 'rejectAd'])->name('revisor.ad.reject');
+});
 

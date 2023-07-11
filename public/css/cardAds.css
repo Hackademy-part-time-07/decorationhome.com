@@ -1,3 +1,7 @@
+.body_anuncios{
+    max-width: 100%;
+    padding:5rem;
+}
 .card_columns {
     display: flex;
     justify-content: center; /* Centra las columnas horizontalmente */
@@ -14,6 +18,8 @@
     width: 25vw;
     box-shadow: 0px 9px 33px -3px var(--shadow);
     border-radius: 1rem;
+    overflow: hidden;
+
 }
 /* esta position se encuentra en el login--> todavia esta en proceso */
 .position_login{
@@ -26,8 +32,11 @@
     flex: 1; /* Ocupa todo el espacio disponible dentro de la tarjeta */
     object-fit: cover; /* Ajusta el tamaño de la imagen */
     width: 100%;
+    transition: all 0.6s ease;
 }
-
+.card img:hover{
+    scale: 1.3;
+}
 .card_body {
     position: relative;
     display: flex; /* Muestra el contenido como flexbox */ 
@@ -44,13 +53,6 @@
     justify-content: center;
     align-items: center;
 }
-.card_body div{
-    padding: 0.5rem;
-    display: flex;
-    font-size: 1.5rem;
-    justify-content: center;
-    align-items: center;
-}
 .color_a{
     color: var(--secundario);
     font-size: 1.5rem;
@@ -59,9 +61,13 @@
     padding: 0.5rem;
     display: flex;
     font-size: 1.5rem;
-    justify-content:space-evenly;
+    justify-content:center;
+    padding-right:0.5rem;
     align-items: center;
     color: var(--secundario);
+}
+.card_body p b{
+    padding-left:0.5rem;
 }
 .btn_card{
     border-radius: 1rem;

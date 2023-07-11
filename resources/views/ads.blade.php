@@ -2,7 +2,7 @@
     <x-slot name="title">
         {{ $categoryName ?? 'Lista de Anuncios' }}
     </x-slot>
-    <div>
+    <div class="body_anuncios">
         @if(request()->is('/'))
             <h1>{{ $welcomeMessage ?? '' }}</h1>
         @endif
@@ -14,8 +14,7 @@
         <h1>{{ ucfirst($categoryName) }}</h1>
 
 
-        <div>
-            <div>
+        
                 <div class="contenedor_position">
                     @if($ads->isEmpty())
                     <p>No hay nada en está categoría puedes <a href="{{ route('create') }}">publicar</a> algo</p>
@@ -31,11 +30,8 @@
                                     @endif
                                     <div class="card_body">
                                         <h5>{{ $ad->title }}</h5>
-                                        <div>{{ $ad->body }}</div>
                                         <p>Precio: <b>${{ $ad->price }} </b></p>
                                         <p>Categoría: <a class="color_a" href="{{ route('ads.category', ['category' => $ad->category->name]) }}"> <b>{{ optional($ad->category)->name }}</b> </a></p>
-                                        <p>Data: <b>{{ $ad->created_at }}</b></p>
-                                        <p>Usuario: <b>{{ optional($ad->user)->name }} </b> </p>
                                         <button class="btn_card" type="summit"><a class="position_card" href="{{ route('ad.show', ['id' => $ad->id]) }}"> Ver detalles </a> </button>
                                         
                                     </div>
@@ -44,8 +40,6 @@
                         </div>
                     @endif
                 </div>
-            </div>
-        </div>
     </div>
 
     @if (request()->is('/'))

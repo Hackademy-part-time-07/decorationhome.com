@@ -88,4 +88,4 @@ public function showAdsByCategory($category)
     return view('ads', compact('slicedAds', 'categoryName'))->with('ads', $ads);
 }
 
-}
+}   

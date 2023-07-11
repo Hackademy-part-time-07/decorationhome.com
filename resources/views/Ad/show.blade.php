@@ -1,5 +1,6 @@
 <x-layout>
-    <h1>Detalle</h1>
+    <div >
+        <h1>Detalle</h1>
 
             <div class="contenedor_position">
                 <div class="card">
@@ -30,6 +31,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </div>
+    
 </x-layout>

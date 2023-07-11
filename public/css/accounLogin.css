@@ -1,13 +1,15 @@
 .position_login{
     display: flex;
     max-width: 100%;
+    justify-content:space-evenly;
+    padding: 8rem;
 }
 .account_img{
   
     padding: 2rem;
     display: flex;
-    height: 65vh;
-    width: 45vw;
+    height: 55vh;
+    width: 40vw;
 }
 .account_img{
     justify-content: center;
@@ -15,8 +17,8 @@
 }
 .position_login section{
     border-radius: 2rem;
-    height: 50vh;
-    width: 25vw;
+    height: 60vh;
+    width: 27vw;
     background-color:var(--card);
 
 }
@@ -24,11 +26,11 @@
     display: flex;
     justify-content: center;
     align-items:center;
-    margin: 4rem;
+    margin: 6rem;
 }
 .input_form{
-    height: 3vh;
-    width: 15vw;
+    height: 4vh;
+    width: 17vw;
     padding: 10px;
     border-radius: 0.2rem;
     border:1px solid var(--secundario);
@@ -45,8 +47,15 @@
     flex-direction: column;
     margin: 1.5rem;
 }
-.position_btween{
+.position_recordar{
     display: flex;
-    justify-content:space-evenly;
+    justify-content:center;
     align-items: center;
+    padding-right:14rem;
+}
+.position_recordar b{
+    padding-left:0.5rem;
+}
+form b{
+    font-size: 1.3rem;
 }
