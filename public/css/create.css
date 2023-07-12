@@ -45,6 +45,7 @@
     overflow: hidden;
     background-color: var(--card);
 }
+/* ----posiciones dentro dela Card_body_Created--- */
 .position_top{
     display: flex;
     justify-content: center;
@@ -52,6 +53,7 @@
     flex-direction: column;
     margin-top: 2rem;
 }
+/* ----separamos en dos partes el top--- */
 .position_top textarea{
  height:15vh;
  margin: 1vw;
@@ -70,6 +72,8 @@ margin: 1vw;
 border-radius:1rem;
 border:1px solid var(--secundario);
 }
+
+/* -----y el Down---- */
 .position_down{
     padding-left: 3rem;
 }
@@ -80,3 +84,4 @@ border:1px solid var(--secundario);
 .position_down input:focus{
     outline: 3px solid var(--secundario);
 }
+/* ----final :)--- */

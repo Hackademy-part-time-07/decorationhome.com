@@ -32,7 +32,7 @@
                                         <h5>{{ $ad->title }}</h5>
                                         <p>Precio: <b>${{ $ad->price }} </b></p>
                                         <p>Categoría: <a class="color_a" href="{{ route('ads.category', ['category' => $ad->category->name]) }}"> <b>{{ optional($ad->category)->name }}</b> </a></p>
-                                        <button class="btn_card" type="summit"><a class="position_card" href="{{ route('ad.show', ['id' => $ad->id]) }}"> Ver detalles </a> </button>
+                                        <button type="summit"><a class="position_card" href="{{ route('ad.show', ['id' => $ad->id]) }}"> Ver detalles </a> </button>
                                         
                                     </div>
                                 </div>

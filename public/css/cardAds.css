@@ -19,7 +19,7 @@
     box-shadow: 0px 9px 33px -3px var(--shadow);
     border-radius: 1rem;
     overflow: hidden;
-
+    padding: 0.5rem;
 }
 /* esta position se encuentra en el login--> todavia esta en proceso */
 .position_login{
@@ -69,26 +69,18 @@
 .card_body p b{
     padding-left:0.5rem;
 }
-.btn_card{
-    border-radius: 1rem;
-    background-color: var(--btn);
-    height:2.5rem;
-    transition: 0.5s all ease-in-out;
-    color: white;
-    border: none;
-}
-.btn_card:hover{
-    background-color: var(--principal);
-}
-.position_btn{
-    padding: 0.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-button a{
+.card_body button a{
     font-size: 1.5rem;
-    color:black;
-    
+    color:rgb(22, 21, 21);
 }
+.card_body button{
+    border-radius: 1rem;
+    border: none;
+    background-color: var(--btn);
+    transition: 0.5s all ease-in-out;
+}
+.card_body button:hover{
+background-color: var(--pincipal);
+}
+
 /* --------este es el contendor position de la card del show y del loginAccount ----------- */
