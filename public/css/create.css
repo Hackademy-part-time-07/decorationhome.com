@@ -6,10 +6,14 @@
 }
 /* --esta es la parte del texto y de la imagen-- */
 .texting_create{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.texting_create{
     height: 55vh;
     width: 50vw;
-    padding-left:5rem;
-    margin-top: 1rem;
+    padding-left:3rem;
 }
 .texting_create h2{
     font-size: 3rem;
@@ -20,8 +24,11 @@
     margin: 1rem;
 }
 .texting_create img{
-    margin: 1rem;
+    display: flex;
+    margin: 3rem;
     border-radius: 1rem;
+    height:40vh;
+    width: 40vw;
 }
 /* ------------la parte del crear anuncios--------- */
 .card_created{
@@ -31,7 +38,7 @@
     flex-direction: column; /* Coloca el contenido en una columna */
     padding: 1.5vw;
     justify-content: space-between; /* Distribuye el contenido verticalmente */
-    height: 60vh;
+    height: 56vh;
     width: 25vw;
     box-shadow: 0px 9px 33px -3px var(--shadow);
     border-radius: 1rem;
@@ -43,7 +50,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 4rem;
+    margin-top: 2rem;
 }
 .position_top textarea{
  height:15vh;
