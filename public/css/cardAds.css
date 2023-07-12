@@ -92,8 +92,3 @@ button a{
     
 }
 /* --------este es el contendor position de la card del show y del loginAccount ----------- */
-.contenedor_position{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}

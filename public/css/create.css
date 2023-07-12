@@ -1,0 +1,75 @@
+.body_create{
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 100%;
+    padding: 3rem;
+}
+/* --esta es la parte del texto y de la imagen-- */
+.texting_create{
+    height: 55vh;
+    width: 50vw;
+    padding-left:5rem;
+    margin-top: 1rem;
+}
+.texting_create h2{
+    font-size: 3rem;
+    margin: 1rem;
+}
+.texting_create p{
+    font-size: 1.3rem;
+    margin: 1rem;
+}
+.texting_create img{
+    margin: 1rem;
+    border-radius: 1rem;
+}
+/* ------------la parte del crear anuncios--------- */
+.card_created{
+    position: relative;
+    display: flex; /* Muestra el contenido como flexbox */ 
+    margin:1.5vw; /* Ajusta el espaciado interno */
+    flex-direction: column; /* Coloca el contenido en una columna */
+    padding: 1.5vw;
+    justify-content: space-between; /* Distribuye el contenido verticalmente */
+    height: 60vh;
+    width: 25vw;
+    box-shadow: 0px 9px 33px -3px var(--shadow);
+    border-radius: 1rem;
+    overflow: hidden;
+    background-color: var(--card);
+}
+.position_top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 4rem;
+}
+.position_top textarea{
+ height:15vh;
+ margin: 1vw;
+ border:1px solid var(--secundario);
+ border-radius:1rem;
+}
+.position_top textarea:focus{
+    outline: 3px solid var(--secundario);
+}
+.position_top input:focus{
+    outline: 3px solid var(--secundario);
+}
+
+.position_top input{
+margin: 1vw;
+border-radius:1rem;
+border:1px solid var(--secundario);
+}
+.position_down{
+    padding-left: 3rem;
+}
+.position_down input{
+    border-radius: 0.5rem;
+    border: 1px solid var(--secundario);
+}
+.position_down input:focus{
+    outline: 3px solid var(--secundario);
+}

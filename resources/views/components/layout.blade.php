@@ -7,6 +7,7 @@
   <link href="{{ asset('css/globalstyles.css') }}" rel="stylesheet">
   <link href="{{ asset('css/cardAds.css') }}" rel="stylesheet">
   <link href="{{ asset('css/accounLogin.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('css/create.css')}}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

@@ -1,43 +1,44 @@
 <x-layout>
     <x-slot name="title">homedecoration - Vendo algo interesante</x-slot>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card1" style="background-color: antiquewhite; padding: 15px; margin-bottom: 20px;">
-                    <div class="card-header">
-                       <b> <h2>Nuevo Anuncio</h2> </b>
-                    </div>
-                    <form action="{{ route('ad.store') }}" method="POST" enctype="multipart/form-data">
+    <header>
+         <div>
+            <div class="body_create">
+                        <div class="texting_create">
+                            <h2><b>Crea un nuevo Anuncio</b></h2>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor, neque? Odit eum sed quia et repellat impedit. Quae voluptates amet architecto minima repellat, consequatur est corporis, numquam cum inventore aliquam! <b>Que estas esperando?</b></p>
+                            <img src="https://ayvisa.es/wp-content/uploads/2021/03/imagenes-para-paginas-web.jpg" alt="img_create">
+                        </div>
+                    <form class="card_created" action="{{ route('ad.store') }}" method="POST" enctype="multipart/form-data">
+                        
                         @csrf
-                        <div class="form-group">
+                        <div class="position_top">
                             <label for="title">Título:</label>
                             <input type="text" name="title" id="title" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="body">Cuerpo:</label>
+
+                            <label for="body">Descripción:</label>
                             <textarea name="body" id="body" class="form-control"></textarea>
                         </div>
-                        <div class="form-group">
+                        <div class="position_down">
                             <label for="price">Precio:</label>
-                            <input type="number" name="price" id="price" class="form-control">
+                            <input type="number" name="price" id="price">
                         </div>
-                        <div class="form-group">
+                        <div class="position_down">
                             <label for="category">Categoría:</label>
-                            <select name="category_id" id="category" class="form-control">
+                            <select class="btn" name="category_id" id="category" >
                                 <option value="">Selecciona una categoría</option>
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group" style="margin-top: 10px;">
+                        <div class="position_down">
                             <label for="image">Imagen:</label>
-                            <input type="file" name="image" id="image" class="form-control-file">
+                            <input class="btn" type="file" name="image" id="image">
                         </div>
-                        <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Guardar</button>
+                        <button class="btn">Guardar</button>
                     </form>
                 </div>
             </div>
-        </div>
-    </div>
+    </header>
+           
 </x-layout>
