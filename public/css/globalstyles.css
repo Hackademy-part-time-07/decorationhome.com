@@ -1,3 +1,21 @@
+
+:root{
+  --principal:rgb(152, 219, 152);
+  --secundario:rgb(195, 240, 140);
+}
+*{
+  padding: 0;
+  margin: 0;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+   box-sizing: border-box;
+}
+
+
+body {
+  position: relative;
+  /* Ajusta el valor del left para dejar espacio para la barra de navegación */
+}
+
 h1 {
   display: flex;
   justify-content: center;
@@ -33,16 +51,7 @@ h1 {
 }
 
 
-:root{
-  --principal:rgb(152, 219, 152);
-  --secundario:rgb(195, 240, 140);
-}
-*{
-  padding: 0;
-  margin: 0;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
-   box-sizing: border-box;
-}
+
 ul,ol{
   list-style: none;
 }
@@ -52,21 +61,38 @@ a{
 }
 
 
-body {
-  position: relative;
-  /* Ajusta el valor del left para dejar espacio para la barra de navegación */
-}
+
 
 /* Asegúrate de asignar un z-index mayor a los elementos que quieres que estén por encima de la barra de navegación */
 .your-div {
   position: relative;
   z-index: 1000; /* Asigna un valor mayor que el z-index de la barra de navegación */
 }
-
-
-.pagination{
-  position:fixed !important;
+.pagination {
+  position:fixed;
+  top: 70%;
+  left: 500px; /* Ajusta el valor según tu diseño */
+  opacity: 0.9;
 }
+
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+
+@media (max-width: 767px) {
+  /* Estilos para pantallas más pequeñas que 768px (modo móvil) */
+  .pagination {
+    position: fixed;
+    top: 280px;
+    left: 500px;
+    opacity: 0.9;
+    height: 100px;
+  }
+}
+
+
 
 
 

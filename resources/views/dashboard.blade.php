@@ -19,6 +19,9 @@
                     <th class="px-4 py-2">Nombre</th>
                     <th class="px-4 py-2">Email</th>
                     <th class="px-4 py-2">Revisor</th>
+                    @if(auth()->user()->is_admin == 1)
+                    <th class="px-4 py-2">Administrador</th>
+                    @endif
                     <th class="px-4 py-2">Acciones</th>
                 </tr>
             </thead>
@@ -31,6 +34,11 @@
                     <td class="px-4 py-2">
                         <input type="checkbox" name="is_revisor" value="1" {{ $user->is_revisor ? 'checked' : '' }}>
                     </td>
+                    @if(auth()->user()->is_admin == 1)
+                    <td class="px-4 py-2">
+                        <input type="checkbox" name="is_admin" value="1" {{ $user->is_admin ? 'checked' : '' }}>
+                    </td>
+                    @endif
                     <td class="px-4 py-2">
                         <form action="{{ route('dashboard.updateRole', $user->id) }}" method="POST">
                             @csrf
@@ -38,10 +46,17 @@
                                 <label for="is_revisor" class="mr-2">Revisor:</label>
                                 <input type="checkbox" name="is_revisor" value="1" {{ $user->is_revisor ? 'checked' : '' }}>
                             </div>
+                            @if(auth()->user()->is_admin == 1)
+                            <div>
+                                <label for="is_admin" class="mr-2">Administrador:</label>
+                                <input type="checkbox" name="is_admin" value="1" {{ $user->is_admin ? 'checked' : '' }}>
+                            </div>
+                            @endif
                             <button type="submit" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
                                 Actualizar Roles
                             </button>
                         </form>
+                        @if(auth()->user()->is_admin == 1)
                         <form action="{{ route('dashboard.destroyUser', $user->id) }}" method="POST" class="inline">
                             @csrf
                             @method('DELETE')
@@ -49,10 +64,17 @@
                                 Eliminar Usuario
                             </button>
                         </form>
+                        @endif
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
+        
+        <div class="pagination-wrapper">
+            <div class="pagination">
+                {{ $users->links('pagination::bootstrap-5') }}
+            </div>
+        </div>
     </div>
 </x-layout>

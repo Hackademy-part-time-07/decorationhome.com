@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RequestReviewer;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\App;
+use APP\Http\Middleware\SetLocaleMiddleware;
+
 
 
 class PublicController extends Controller
@@ -37,6 +40,15 @@ class PublicController extends Controller
     
         return redirect()->back()->with('success', 'Tu solicitud ha sido enviada correctamente.');
     }
+
+    public function setLocale($locale)
+{
+    session()->put('locale', $locale);
+    return redirect()->back();
+}
+    
+    
+
     
 
 }

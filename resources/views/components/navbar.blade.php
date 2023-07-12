@@ -57,16 +57,34 @@
                         @csrf
                     </form>
                     @endauth
-                    
+                   
                     <li class="logo-container">
                         <a href="/" class="logo-link">
                             <img src="{{ asset('images/homedecoration.com.png') }}" alt="Logo" width="250" height="250">
                         </a>
                     </li>
-                
             </li>
-            
         </ul>
+      
+        <ul style="display: flex;">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('locale.setLocale', 'es') }}" style="margin-right: 40px;color: black;" data-method="post">
+                    <span class="flag-icon flag-icon-es"></span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('locale.setLocale', 'en') }}" style="margin-right: 40px;color: black;" data-method="post">
+                    <span class="flag-icon flag-icon-gb"></span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('locale.setLocale', 'it') }}" style="margin-right: 40px;color: black;" data-method="post">
+                    <span class="flag-icon flag-icon-it"></span>
+                </a>
+            </li> 
+        </ul>
+        
+        
         
     </nav>
     

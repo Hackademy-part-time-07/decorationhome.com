@@ -3,7 +3,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdController;
 use App\Http\Controllers\RevisorController;
 use App\Http\Controllers\PublicController;
-
+use App\Http\Middleware\SetLocalMiddleware;
 use App\Http\Livewire\CreateAd;
 use App\Http\Controllers\HomeController;
 use App\Models\Ad;
@@ -17,6 +17,8 @@ Route::get('/', function () {
     $welcomeMessage = '¡Bienvenido/a! Estas son las últimas publicaciones de nuestros vendedores'; // Mensaje de bienvenida
     return view('ads', compact('ads', 'categoryName', 'welcomeMessage')); // Pasar las variables a la vista
 });
+
+
 
 Route::get('/request-reviewer', function () {
     return view('request_reviewer');
@@ -38,13 +40,11 @@ Route::post('/dashboard/{id}', [RevisorController::class, 'updateRole'])->name('
 Route::get('/dashboardrevisor', [RevisorController::class, 'dashboardRevisor'])->name('dashboardrevisor');
 Route::post('/dashboardrevisor/{id}', [RevisorController::class, 'update'])->name('dashboardrevisor.update');
 Route::delete('/users/{id}', [RevisorController::class, 'destroyUser'])->name('dashboard.destroyUser');
+Route::get('/locale/{locale}', [PublicController::class, 'setLocale'])->name('locale.setLocale');
 
 Route::delete('/dashboardrevisor/delete/{id}', [RevisorController::class, 'destroyAd'])->name('dashboardrevisor.destroyAd');
 
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

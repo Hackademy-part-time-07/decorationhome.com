@@ -8,7 +8,7 @@ use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
-
+use Illuminate\Pagination\Paginator;
 class AdController extends Controller
 {
     public function create()
@@ -61,7 +61,7 @@ class AdController extends Controller
 
     public function showAds()
 {
-    $ads = Ad::where('is_accepted', 1)->latest()->paginate(6);
+    $ads = Ad::where('is_accepted', 1)->latest()->paginate(9);
 
     $categoryName = null;
     $welcomeMessage = '¡Bienvenido/a! Estas son las últimas publicaciones';
@@ -70,18 +70,15 @@ class AdController extends Controller
 }
 
 
+
 public function showAdsByCategory($category)
 {
-    $categoryName = Category::where('name', $category)->value('name');
-
-    $query = Ad::whereHas('category', function ($query) use ($category) {
-        $query->where('name', $category);
-    })->latest();
-
-    $ads = $query->paginate(6);
-
-    $ads->appends(['category' => $category]); // Agregar el parámetro de la categoría a la paginación
-
+    $categoryName = $category; // Obtener el nombre de la categoría para mostrar en la vista
+    $category = Category::where('name', $category)->firstOrFail(); // Obtener el objeto de categoría
+    $ads = $category->ads()->where('is_accepted', 1)->latest()->paginate(3); // Obtener los anuncios de la categoría con paginación
     return view('ads', compact('ads', 'categoryName'));
 }
+
+
+
 }
