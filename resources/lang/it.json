@@ -1,5 +1,5 @@
 {
-    "Bienvenido a HomeDecoration": "Benvenuto su HomeDecotation.com",
+    "Bienvenido a HomeDecoration": "Benvenuto",
     "Categorías": "Categorie",
     "coches": "auto",
     "motos": "moto",
@@ -69,5 +69,6 @@
     "Administrador": "Amministratore",
     "Login": "Login",
     "Registro": "Registrazione",
-    "Logout": "Logout"
+    "Logout": "Logout",
+    "Aquí podéis ver nuestros últimos avisos, para ver más ve a una categoría": "Qui puoi vedere i nostri ultimi avvisi, per vedere di più vai a una categoria"
 }

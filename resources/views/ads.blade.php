@@ -10,6 +10,7 @@
     <div class="container">
         @if(request()->is('/'))
             <h1 class="pt-5" style="margin-bottom: -25px;">{{ __('Bienvenido a HomeDecoration') }}</h1>
+            <h1 class="pt-5" style="margin-bottom: -25px; color: yellow;">{{ __('Aquí podéis ver nuestros últimos avisos, para ver más ve a una categoría') }}</h1>
         @endif
         @if(request()->is('ads'))
             <h1 style="margin-top: 60px; margin-bottom: -30px;">{{ $categoryName ?? __('Todos los anuncios:') }}</h1>

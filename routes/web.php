@@ -18,6 +18,7 @@ Route::get('/', function () {
     return view('ads', compact('ads', 'categoryName', 'welcomeMessage')); // Pasar las variables a la vista
 });
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 Route::get('/request-reviewer', function () {
@@ -45,7 +46,5 @@ Route::get('/locale/{locale}', [PublicController::class, 'setLocale'])->name('lo
 
 Route::delete('/dashboardrevisor/delete/{id}', [RevisorController::class, 'destroyAd'])->name('dashboardrevisor.destroyAd');
 
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 

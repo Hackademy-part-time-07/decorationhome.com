@@ -5,7 +5,7 @@
     <nav>
         <ul class="navigation">
             <li><a class="nav-link" style="margin-right:50px; color:black;" href="/">{{ __('Inicio') }}</a></li>
-            <li><a class="nav-link" style="color:black;" href="{{ route('ads') }}">{{ __('Anuncios') }}</a></li>
+            <li><a class="nav-link" style="color:black; display: none;" href="{{ route('ads') }}">{{ __('Anuncios') }}</a></li>
             @auth 
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('request.reviewer') }}" style="margin-right: 40px;color: black; ">{{ __('Empleo') }}</a>

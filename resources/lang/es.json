@@ -1,5 +1,5 @@
 {
-    "Bienvenido a HomeDecoration": "Bienvenido a HomeDecoration",
+    "Bienvenido a HomeDecoration": "Bienvenido",
     "Lista de Anuncios": "Lista de Anuncios",
     "Todos los anuncios:": "Todos los anuncios:",
     "Precio": "Precio",
@@ -30,5 +30,6 @@
     "Entrar": "Entrar",
     "Registro": "Registro",
     "Logout": "Logout",
-    "Anuncios": "Anuncios"
+    "Anuncios": "Anuncios",
+    "Aquí podéis ver nuestros últimos avisos, para ver más ve a una categoría": "Aquí podéis ver nuestros últimos avisos, para ver más ve a una categoría"
 }
