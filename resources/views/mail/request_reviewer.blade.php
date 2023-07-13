@@ -11,3 +11,4 @@
     <p>Mensaje: {{ $data['message'] }}</p>
 </body>
 </html>
+
