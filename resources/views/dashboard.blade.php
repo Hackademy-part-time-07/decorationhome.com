@@ -2,6 +2,12 @@
     <x-slot name="title">
         Dashboard
     </x-slot>
+    @if (session('jobRequests'))
+    <div class="alert alert-info">
+        Se han enviado peticiones de empleo. Por favor, revísalas en el correo.
+    </div>
+@endif
+
 
     <div class="container mx-auto p-4">
         <h1 class="text-2xl font-bold mb-4">Administrador</h1>

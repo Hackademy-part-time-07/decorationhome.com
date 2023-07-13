@@ -38,8 +38,21 @@ class PublicController extends Controller
                 ->from($data['email'], $data['name']);
         });
     
-        return redirect()->back()->with('success', 'Tu solicitud ha sido enviada correctamente.');
+        // Buscar al primer usuario con is_admin = 1
+        $adminUser = User::where('is_admin', 1)->first();
+    
+        if ($adminUser) {
+            // Establecer una variable de sesión con el ID del usuario administrador
+            session()->put('admin_user_id', $adminUser->id);
+        }
+    
+        session()->flash('success', 'Tienes formularios recibidos.');
+    
+        return redirect()->back();
     }
+    
+    
+    
 
     public function setLocale($locale)
 {

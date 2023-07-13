@@ -9,7 +9,7 @@
     @endif
     <div class="container">
         @if(request()->is('/'))
-            <h1 class="pt-5" style="margin-bottom: -25px;">{{__('messages.welcome')}}</h1>;
+            <h1 class="pt-5" style="margin-bottom: -25px;">{{__('messages.welcome')}}</h1>
             
         @endif
         @if(request()->is('ads'))
@@ -20,11 +20,13 @@
         <div class="card-columns">
             @forelse($ads as $ad)
                 <div class="card">
-                    @if ($ad->image)
-                        <img src="{{ asset('storage/images/' . $ad->image) }}" class="card-img-top" alt="Anuncio">
-                    @else
-                        <img src="{{ asset('images/iphonese.jpg') }}" class="card-img-top" alt="Imagen de relleno">
-                    @endif
+                   
+                    @if ($ad->image && !$ad->isImageDeleted)
+                    <img src="{{ asset('storage/images/' . $ad->image) }}" alt="Imagen del anuncio" class="card-img-top">
+                @else
+                    <img src="{{ asset('images/iphonese.jpg') }}" class="card-img-top" alt="Imagen de relleno">
+                @endif
+                
                     <div class="card-body">
                         <h5 class="card-title">{{ $ad->title }}</h5>
                         <div class="card-text scrollable">{{ $ad->body }}</div>

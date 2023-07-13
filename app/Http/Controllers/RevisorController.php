@@ -51,12 +51,26 @@ public function updateRole(Request $request, $id)
     return redirect()->route('dashboard')->with('error', 'No tienes permiso para actualizar los roles.');
 }
 
-    public function dashboardRevisor()
-    {
-        $ads = Ad::orderBy('created_at', 'desc')->get();
-    
-        return view('dashboard.dashboardrevisor', compact('ads'));
+    public function dashboardRevisor(Request $request)
+{
+    $filter = $request->input('filter');
+
+    $query = Ad::query();
+
+    if ($filter == 'accepted') {
+        $query->where('is_accepted', 1);
+    } elseif ($filter == 'not_accepted') {
+        $query->where(function ($query) {
+            $query->where('is_accepted', 0)
+                ->orWhereNull('is_accepted');
+        });
     }
+
+    $ads = $query->latest()->paginate(6);
+
+    return view('dashboard.dashboardrevisor', compact('ads', 'filter'));
+}
+
     
 
 
@@ -64,7 +78,7 @@ public function update(Request $request, $id)
 {
     // Obtener el anuncio a partir del ID
     $ad = Ad::findOrFail($id);
-    
+
     // Actualizar los datos del anuncio según los valores enviados en el formulario
     $ad->title = $request->input('title');
     $ad->body = $request->input('body');
@@ -72,10 +86,24 @@ public function update(Request $request, $id)
 
     // Procesar la imagen si se ha subido
     if ($request->hasFile('image')) {
+        // Eliminar la imagen existente si la hay
+        if ($ad->image) {
+            Storage::delete('public/images/' . $ad->image);
+        }
+
         $image = $request->file('image');
         $imageName = time() . '.' . $image->getClientOriginalExtension();
         $image->storeAs('public/images', $imageName);
         $ad->image = $imageName;
+    }
+
+    // Verificar si se marcó la casilla "Eliminar imagen"
+    if ($request->has('delete_image')) {
+        // Eliminar la imagen existente
+        if ($ad->image) {
+            Storage::delete('public/images/' . $ad->image);
+            $ad->image = null;
+        }
     }
 
     // Actualizar el campo is_accepted si se envió en el formulario
@@ -84,14 +112,18 @@ public function update(Request $request, $id)
     } else {
         $ad->is_accepted = null; // Si no se envió, se establece como null
     }
-    
+
     // Actualizar otros campos según sea necesario
-    
+
     $ad->save();
-    
-    // Redirigir de vuelta al dashboard o a la página que desees
-    return redirect()->route('dashboardrevisor')->with('success', 'Anuncio actualizado exitosamente.');
+
+    // Obtener el valor del filtro actual desde la solicitud
+    $filter = $request->input('filter');
+
+    // Redirigir de vuelta al dashboard con el filtro aplicado
+    return redirect()->route('dashboardrevisor', ['filter' => $filter])->with('success', 'Anuncio actualizado exitosamente.');
 }
+
 
 public function destroyUser($id)
 {
@@ -116,6 +148,8 @@ public function destroyAd($id)
     // Redirigir de vuelta al dashboard o a la página que desees
     return redirect()->route('dashboardrevisor')->with('success', 'Anuncio eliminado exitosamente.');
 }
+
+
 
 
 }

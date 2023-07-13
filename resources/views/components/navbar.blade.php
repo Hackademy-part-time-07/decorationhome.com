@@ -31,14 +31,12 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownCollaborator">
                     <a class="dropdown-item" href="{{ route('create') }}">Crear Anuncio</a>
-                    @auth
                     @if (auth()->user()->is_admin == 1)
-                    <a class="dropdown-item" href="{{ route('dashboard') }}">Administrador</a>
+                        <a class="dropdown-item" href="{{ route('dashboard') }}">Administrador</a>
                     @endif
                     @if (auth()->user()->is_revisor == 1)
-                    <a class="dropdown-item" href="{{ route('dashboardrevisor') }}">Revisor</a>
+                        <a class="dropdown-item" href="{{ route('dashboardrevisor') }}">Revisor</a>
                     @endif
-                    @endauth
                 </div>
             </li>
             @endauth
@@ -57,12 +55,33 @@
                         @csrf
                     </form>
                     @endauth
-                   
-                    <li class="logo-container">
-                        <a href="/" class="logo-link">
-                            <img src="{{ asset('images/homedecoration.com.png') }}" alt="Logo" width="250" height="250">
+                </div>
+            </li>
+            @if (Auth::check() && Auth::user()->is_revisor)
+                @php
+                    $pendingAdsCount = \App\Models\Ad::where('is_accepted', 0)->orWhereNull('is_accepted')->count();
+                @endphp
+                @if ($pendingAdsCount > 0)
+                    <li class="nav-item" style="margin-left: 15px;">
+                        <a class="nav-link" href="{{ route('dashboardrevisor') }}">
+                            <i class="fas fa-envelope"></i>
+                            <span class="badge bg-danger">{{ $pendingAdsCount }} Anuncios</span>
                         </a>
                     </li>
+                @endif
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+            @endif
+            <li class="logo-container">
+                <a href="/" class="logo-link">
+                    <img src="{{ asset('images/homedecoration.com.png') }}" alt="Logo" width="250" height="250">
+                </a>
             </li>
         </ul>
       
@@ -83,9 +102,5 @@
                 </a>
             </li> 
         </ul>
-        
-        
-        
     </nav>
-    
 </header>
