@@ -8,10 +8,6 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RequestReviewer;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\App;
-use APP\Http\Middleware\SetLocaleMiddleware;
-
-
 
 class PublicController extends Controller
 {
@@ -38,32 +34,14 @@ class PublicController extends Controller
                 ->from($data['email'], $data['name']);
         });
     
-        // Buscar al primer usuario con is_admin = 1
-        $adminUser = User::where('is_admin', 1)->first();
-    
-        if ($adminUser) {
-            // Establecer una variable de sesión con el ID del usuario administrador
-            session()->put('admin_user_id', $adminUser->id);
-        }
-    
-        session()->flash('success', 'Tienes formularios recibidos.');
-    
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Tu solicitud ha sido enviada correctamente.');
     }
-    
-    
-    
+
+
 
     public function setLocale($locale)
-{
-    session()->put('locale', $locale);
-    return redirect()->back();
+    {
+        session()->put('locale', $locale);
+        return redirect()->back();
+    }
 }
-    
-    
-
-    
-
-}
-
-

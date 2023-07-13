@@ -21,7 +21,7 @@
     </div>
     @endif
 
-    <div class="container padingtop20">
+    <div class="container padingtop20" style="margin-top: 30px;">
         <h1>Editar anuncios</h1>
 
         <div class="row">

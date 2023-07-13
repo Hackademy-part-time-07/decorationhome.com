@@ -5,7 +5,7 @@
             <div class="col-md-8">
                 <div class="card1" style="background-color: #cbf0e4; padding: 15px; margin-bottom: 20px;">
                     <div class="card-header">
-                       <b> <h2>Nuevo Anuncio</h2> </b>
+                       <b> <h2>{{ __('Nuevo Anuncio') }}</h2> </b>
                     </div>
                     <form action="{{ route('ad.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf

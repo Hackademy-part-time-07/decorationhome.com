@@ -31,7 +31,8 @@ Route::post('/request-reviewer', [PublicController::class, 'requestReviewer'])->
 Route::get('/ad/create', [AdController::class, 'create'])->name('create'); //metodo para llegar al form crear
 Route::post('/ad', [AdController::class, 'store'])->name('ad.store');//metodo crear ads
 Route::get('/ads', [AdController::class, 'showAds'])->name('ads'); //metodo, estilo index, para visualizar ads.blade
-Route::get('/ads/{category}', [AdController::class, 'showAdsByCategory'])->name('ads.category');//para ver ads.blade por categorias.
+Route::get('/ads/{category}', [AdController::class, 'showAdsByCategory'])->name('ads.category');
+
 Route::get('/ad/{id}', [AdController::class, 'show'])->name('ad.show');
 
 

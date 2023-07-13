@@ -4,5 +4,6 @@
 
 
 return[
-    'welcome' => 'Benvenuto nella tua applicazione'
+    'welcome' => 'Benvenuto nella tua applicazione',
+    'show' => 'Ver detalle',
 ];
