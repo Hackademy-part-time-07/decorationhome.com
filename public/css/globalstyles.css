@@ -80,6 +80,21 @@ a{
   justify-content: center;
 }
 
+.canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.connecting-dots {
+  display: none;
+}
+
+
 
 @media (max-width: 767px) {
   /* Estilos para pantallas más pequeñas que 768px (modo móvil) */
