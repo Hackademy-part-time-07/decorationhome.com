@@ -11,15 +11,10 @@
             <h1 style="margin-top:20px; ">{{ $categoryName ?? 'Todos los anuncios:' }}</h1>
         @endif
 
-        <h1>{{ ucfirst($categoryName) }}</h1>
 
 
         
                 <div class="contenedor_position">
-                    @if($ads->isEmpty())
-                    <p>No hay nada en está categoría puedes <a href="{{ route('create') }}">publicar</a> algo</p>
-                        <p>o Volver al <a href="/">inicio</a> y comprar alguno de nuestro muchos productos de otra categoría.</p>
-                    @else
                         <div class="card_columns">
                             @foreach($ads as $ad)
                                 <div class="card">
@@ -38,7 +33,6 @@
                                 </div>
                             @endforeach
                         </div>
-                    @endif
                 </div>
     </div>
 
